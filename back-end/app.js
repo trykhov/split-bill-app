@@ -1,14 +1,17 @@
 
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const keys = require('./keys');
+const md5 = require('md5');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect(keys.dbURL, {useNewUrlParser: true});
+
+mongoose.connect(process.env.DB_URL, {useNewUrlParser: true});
 
 const loginSchema = {
   username: String,
@@ -19,11 +22,11 @@ const User = new mongoose.model('login', loginSchema);
 
 const newUser = new User({
   username: "testing",
-  password: "password-test"
+  password: md5("password-test")
 });
 
 // testing purposes
-User.findOne({username: "testing", password: "hi"}, function(err, foundUser) {
+User.findOne({username: "testing", password: md5("hi")}, function(err, foundUser) {
   if(err) {
     console.log(err);
   } else if(!foundUser){
