@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const path = require('path');
 const saltRounds = 10;
 
 const app = express();
@@ -21,39 +22,73 @@ const loginSchema = {
 
 const User = new mongoose.model("login", loginSchema);
 
-bcrypt.hash("wrong", saltRounds, function(err, hash) {
-  const newUser = new User({
-    username: "testing2",
-    password: hash
-  });
+app.use(express.static(path.join(__dirname, '../front-end', 'build')));
 
-  // newUser.save(function(err) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log("Success, check the database");
-  //   }
-  // });
-});
+app.get("*/", function(req, res) {
+  res.sendFile(path.join(__dirname, '../front-end', 'build', 'index.html'));
+})
 
-// testing purposes
-User.findOne({ username: "testing2" }, function(err, foundUser) {
-  if (err) {
-    console.log(err);
-  } else if (!foundUser) {
-    console.log("can't find anyone");
-  } else {
-    bcrypt.compare("wrong", foundUser.password, function(err, result) {
+
+app.post("/login-confirm", function(req, res) {
+  let username = req.body.username;
+  let password = req.body.password;
+
+  bcrypt.hash(password, saltRounds, function(err, hash) {
+
+    const newUser = new User(
+      {
+        username: username,
+        password: hash
+      }
+    );
+    // need to check if the username is taken --> if so, enter a new
+    
+    newUser.save(function(err) {
       if (err) {
         console.log(err);
-      } else if (result == true) {
-        console.log(foundUser.password);
       } else {
-        console.log("Nah");
+        console.log("Success, check the database");
       }
-    });
-  }
+    }
+  );
 });
+
+  res.send("Success!");
+});
+
+// bcrypt.hash("wrong", saltRounds, function(err, hash) {
+//   const newUser = new User({
+//     username: "testing2",
+//     password: hash
+//   });
+//
+//   // newUser.save(function(err) {
+//   //   if (err) {
+//   //     console.log(err);
+//   //   } else {
+//   //     console.log("Success, check the database");
+//   //   }
+//   // });
+// });
+
+// testing purposes
+// User.findOne({ username: "testing2" }, function(err, foundUser) {
+//   if (err) {
+//     console.log(err);
+//   } else if (!foundUser) {
+//     console.log("can't find anyone");
+//   } else {
+//     bcrypt.compare("wrong", foundUser.password, function(err, result) {
+//       if (err) {
+//         console.log(err);
+//       } else if (result == true) {
+//         console.log(foundUser.password);
+//       } else {
+//         console.log("Nah");
+//       }
+//     });
+//   }
+// });
 
 // testing purposes
 // User.findOne({username: "testing"}, function(err, foundUser) {
@@ -74,6 +109,6 @@ User.findOne({ username: "testing2" }, function(err, foundUser) {
 //   }
 // });
 
-app.listen(3000, function() {
-  console.log("Server is running on port 3000");
+app.listen(4000, function() {
+  console.log("Server is running on port 4000");
 });
