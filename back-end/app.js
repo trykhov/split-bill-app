@@ -41,19 +41,37 @@ app.post("/login-confirm", function(req, res) {
         password: hash
       }
     );
-    // need to check if the username is taken --> if so, enter a new
-    
-    newUser.save(function(err) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Success, check the database");
-      }
-    }
-  );
-});
 
-  res.send("Success!");
+    // check if username is taken
+    User.findOne({ username: username }, function(err, foundUser) {
+      if(err) {
+        console.log(err);
+      } else if(!foundUser){
+        newUser.save(function(err) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send("Success, check the database");
+          }
+        });
+      } else {
+        res.send("Username is already taken");
+      }
+      // if (err) {
+      //   console.log(err);
+      // } else if (foundUser) { // taken --> enter new username
+      //   res.send("Username already taken")
+      // } else { // not taken --> save username
+      //   newUser.save(function(err) {
+      //     if (err) {
+      //       console.log(err);
+      //     } else {
+      //       console.log("Success, check the database");
+      //     }
+      //   });
+      // }
+    });
+  });
 });
 
 // bcrypt.hash("wrong", saltRounds, function(err, hash) {
