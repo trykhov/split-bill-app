@@ -59,6 +59,27 @@ app.post("/register-confirm", function(req, res) {
   });
 });
 
+app.post("/login-confirm", function(req, res) {
+  let userLoginName = req.body.username;
+  let loginPassword = req.body.password;
+
+  User.findOne({username: userLoginName}, function(err, foundUser) {
+    if(err) {
+      console.log(err);
+    } else if(!foundUser) {
+      res.send("Incorrect username and / or password");
+    } else {
+      bcrypt.compare(loginPassword, foundUser.password, function(err, result) {
+        if(result == true) {
+          res.send("Login successful");
+        } else {
+          res.send("Incorrect username and / or password");
+        }
+      })
+    }
+  })
+})
+
 
 app.listen(4000, function() {
   console.log("Server is running on port 4000");
