@@ -5,9 +5,17 @@ class Register extends React.Component {
 
   render() {
     return(
-      <div>
-      Register Here
-      </div>
+      <form action="/register-confirm" method="post">
+        <div>
+          <label for="username" class="title">Username:</label>
+          <input type="text" name="username"/>
+        </div>
+        <div>
+          <label for="username" class="title">Password:</label>
+          <input type="password" name="password"/>
+        </div>
+        <input type="submit"/>
+      </form>
     )
   }
 }
