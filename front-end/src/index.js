@@ -1,17 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import TitlePage from "./components/TitlePage";
 import { BrowserRouter, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <BrowserRouter>
     <div>
-      <Route path="/" component={App} exact />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
+      <Route path="/" component={TitlePage} exact />
     </div>
   </BrowserRouter>,
   document.getElementById("root")

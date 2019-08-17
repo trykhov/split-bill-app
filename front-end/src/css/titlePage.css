@@ -1,0 +1,11 @@
+h3 {
+    margin: 0
+}
+
+#homepage {
+    color: #fff;
+    font-family: "American Typewriter", "serif";
+    text-align: center;
+    flex-direction: column;
+    justify-items: center;
+}
