@@ -2,13 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import TitlePage from "./components/TitlePage";
 import { BrowserRouter, Route } from "react-router-dom";
-import * as serviceWorker from "./serviceWorker";
+import TotalBill from './components/TotalBill';
 
 ReactDOM.render(
   <BrowserRouter>
-    <div>
       <Route path="/" component={TitlePage} exact />
-    </div>
+      <Route path="/total" component={TotalBill} />
   </BrowserRouter>,
   document.getElementById("root")
 );

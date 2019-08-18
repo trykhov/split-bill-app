@@ -5,7 +5,47 @@ h3 {
 #homepage {
     color: #fff;
     font-family: "American Typewriter", "serif";
+    font-size: 20px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+    overflow: auto;
     text-align: center;
-    flex-direction: column;
-    justify-items: center;
+    width: 80%;
+}
+
+#logo {
+    display: block;
+    height: 150px;
+    margin: 10% auto;
+}
+
+#startButton {
+    align-items: center;
+    background: linear-gradient(#29B2E5, #1C7CA7);
+    border-radius: 16px;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    margin: 40px auto;
+    text-decoration: none;
+    width: 150px;
+}
+
+#startButton label {
+    color: #fff;
+    font-family: "Futura", "serif";
+}
+
+#titleDesc {
+    font-family: "Futura", "serif";
+}
+
+@media (max-width: 490px) {
+    #homepage {
+        margin: 40% auto;
+    }
+
+    #logo {
+        margin: 20% auto;
+    }
 }
