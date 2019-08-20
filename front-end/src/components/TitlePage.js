@@ -9,8 +9,8 @@ export default function TitlePage() {
             <h3 id="title">SplitBill</h3>
             <img id="logo" src={logo}/>
             <label id="titleDesc">The easiest way to split the bill with your friends</label>
-            <div id="startButton">
-                <Link to="total" style={{textDecoration: 'none'}}>
+            <div className="doneButton">
+                <Link to="billInfo" style={{textDecoration: 'none'}}>
                     <label>Start</label>
                 </Link>
             </div>

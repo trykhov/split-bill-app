@@ -10,10 +10,13 @@ body {
     overflow: auto;
 }
 
-#root {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    overflow: auto;
+
+@media (min-width: 400px) {
+    #root {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        overflow: auto;
+    }
 }

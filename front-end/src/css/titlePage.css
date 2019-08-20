@@ -19,7 +19,7 @@ h3 {
     margin: 10% auto;
 }
 
-#startButton {
+.doneButton {
     align-items: center;
     background: linear-gradient(#29B2E5, #1C7CA7);
     border-radius: 16px;
@@ -31,7 +31,7 @@ h3 {
     width: 150px;
 }
 
-#startButton label {
+.doneButton label {
     color: #fff;
     font-family: "Futura", "serif";
 }

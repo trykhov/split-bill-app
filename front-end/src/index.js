@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import TitlePage from "./components/TitlePage";
 import { BrowserRouter, Route } from "react-router-dom";
 import TotalBill from './components/TotalBill';
+import NumPeople from './components/NumPeople';
 
 ReactDOM.render(
   <BrowserRouter>
       <Route path="/" component={TitlePage} exact />
-      <Route path="/total" component={TotalBill} />
+      <Route path="/billInfo" component={TotalBill} />
+      <Route path="/numberOfPeople" component={NumPeople} />
   </BrowserRouter>,
   document.getElementById("root")
 );
