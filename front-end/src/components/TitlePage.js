@@ -1,5 +1,5 @@
 import React from 'react';
-import titlePage from '../css/titlePage.css';
+import '../css/titlePage.css';
 import logo from '../logo.png';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ export default function TitlePage() {
     return(
         <div id="homepage">
             <h3 id="title">SplitBill</h3>
-            <img id="logo" src={logo}/>
+            <img id="logo" src={logo} alt="logo"/>
             <label id="titleDesc">The easiest way to split the bill with your friends</label>
             <div className="doneButton">
                 <Link to="billInfo" style={{textDecoration: 'none'}}>

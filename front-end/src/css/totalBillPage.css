@@ -1,6 +1,4 @@
-.appLogo {
-    
-}
+
 
 .appName {
     align-items: center;
@@ -23,6 +21,7 @@
 
 #billInfo > * { 
     /* adding space between all child elements of #billInfo */
+    font-size: 20px;
     margin-bottom: 40px;
     overflow: auto;
 }
@@ -34,12 +33,15 @@
     margin-bottom: 2px;
 }
 
-.inputAmount {
-    border-radius: 10px;
-    padding: 13px 0;
-    width: 98%;
+input[type="text"] {
+    font-size: 20px;
 }
 
+.inputAmount {
+    border-radius: 10px;
+    padding: 10px 7px;
+    width: 90%;
+}
 
 
 
