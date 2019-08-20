@@ -47,6 +47,11 @@ input[type="text"] {
     font-size: 20px;
 }
 
+input:focus::-webkit-input-placeholder { 
+    /* allows placeholder value to disappear on click */
+    color: transparent; 
+}
+
 .inputAmount {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

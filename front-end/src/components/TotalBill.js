@@ -17,21 +17,21 @@ class TotalBill extends React.Component {
                         <label className="info">Bill Total</label>
                         <div className="inputContainer">
                             <label className="dollarSign">$</label>
-                            <input type="text" className="inputAmount" />
+                            <input type="text" className="inputAmount" autoFocus placeholder="0.00"/>
                         </div>
                     </div>
                     <div id="tip">
                         <label className="info">Tip Amount</label>
                         <div className="inputContainer">
                             <label className="dollarSign">$</label>
-                            <input type="text" className="inputAmount" />
+                            <input type="text" className="inputAmount" placeholder="0.00"/>
                         </div>
                     </div>
                     <div id="total">
                         <label className="info">Total</label>
                         <div className="inputContainer">
                             <label className="dollarSign">$</label>
-                            <input type="text" className="inputAmount" />
+                            <input type="text" className="inputAmount" placeholder="0.00"/>
                         </div>
                     </div>
                     <div className="doneButton">
