@@ -15,15 +15,24 @@ class TotalBill extends React.Component {
                 <div id="billInfo">
                     <div id="billTotal">
                         <label className="info">Bill Total</label>
-                        <input type="text" className="inputAmount" />
+                        <div className="inputContainer">
+                            <label className="dollarSign">$</label>
+                            <input type="text" className="inputAmount" />
+                        </div>
                     </div>
                     <div id="tip">
                         <label className="info">Tip Amount</label>
-                        <input type="text" className="inputAmount" />
+                        <div className="inputContainer">
+                            <label className="dollarSign">$</label>
+                            <input type="text" className="inputAmount" />
+                        </div>
                     </div>
                     <div id="total">
                         <label className="info">Total</label>
-                        <input type="text" className="inputAmount" />
+                        <div className="inputContainer">
+                            <label className="dollarSign">$</label>
+                            <input type="text" className="inputAmount" />
+                        </div>
                     </div>
                     <div className="doneButton">
                         <Link to="numberOfPeople" style={{textDecoration: 'none'}}>
