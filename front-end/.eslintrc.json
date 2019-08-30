@@ -1,0 +1,36 @@
+{
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["react", "react-hooks"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "react/jsx-fragments": ["error", "element"],
+    "import/imports-first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "no-param-reassign": ["error", { "props": false }],
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ]
+  },
+  "globals": {},
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

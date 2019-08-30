@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TitlePage from "./components/TitlePage";
 import { BrowserRouter, Route } from "react-router-dom";
-import TotalBill from './components/TotalBill';
-import NumPeople from './components/NumPeople';
+import TitlePage from "./components/TitlePage";
+import TotalBill from "./components/TotalBill";
+import NumPeople from "./components/NumPeople";
 
 ReactDOM.render(
   <BrowserRouter>
-      <Route path="/" component={TitlePage} exact />
-      <Route path="/billInfo" component={TotalBill} />
-      <Route path="/numberOfPeople" component={NumPeople} />
+    <Route path="/" component={TitlePage} exact />
+    <Route path="/billInfo" component={TotalBill} />
+    <Route path="/numberOfPeople" component={NumPeople} />
   </BrowserRouter>,
   document.getElementById("root")
 );
