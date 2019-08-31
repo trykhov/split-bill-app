@@ -1,0 +1,41 @@
+$fontHeader: "American Typewriter", "serif";
+$fontDesc: "Futura", "serif";
+
+$pageWidth: 80%;
+
+@mixin verticalCenter {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.appName {
+  align-items: center;
+  display: flex;
+  margin: 10px;
+  overflow: auto;
+  h1 {
+    color: #fff;
+    font-family: $fontHeader;
+    margin-left: 5px;
+  }
+}
+
+.appLogo {
+  height: 10%;
+  width: 10%;
+}
+
+.doneButton {
+  @include verticalCenter();
+  background: linear-gradient(#29b2e5, #1c7ca7);
+  border-radius: 16px;
+  height: 60px;
+  margin: 40px auto;
+  text-decoration: none;
+  width: 150px;
+  span {
+    color: #fff;
+    font-family: $fontDesc;
+  }
+}

@@ -1,0 +1,82 @@
+.appName {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+  overflow: auto;
+}
+
+.appName h1 {
+  color: #fff;
+  font-family: "American Typewriter", "serif";
+  margin-left: 5px;
+}
+
+.appLogo {
+  height: 200px;
+  width: 200px;
+}
+
+.doneButton {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#29b2e5),
+    to(#1c7ca7)
+  );
+  background: linear-gradient(#29b2e5, #1c7ca7);
+  border-radius: 16px;
+  height: 60px;
+  margin: 40px auto;
+  text-decoration: none;
+  width: 150px;
+}
+
+.doneButton span {
+  color: #fff;
+  font-family: "Futura", "serif";
+}
+
+#homepage {
+  color: #fff;
+  font-family: "American Typewriter", "serif";
+  font-size: 20px;
+  margin: 0 auto;
+  letter-spacing: 1px;
+  overflow: auto;
+  text-align: center;
+  width: 80%;
+}
+
+#logo {
+  display: block;
+  height: 150px;
+  margin: 10% auto;
+}
+
+#titleDesc {
+  font-family: "Futura", "serif";
+}
+
+@media (max-width: 490px) {
+  #homepage {
+    margin: 40% auto;
+  }
+  #logo {
+    margin: 20% auto;
+  }
+}
+/*# sourceMappingURL=titlePage.css.map */

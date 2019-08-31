@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../logo.png";
-import "../css/totalBillPage.css";
+import "../css/totalBillPage/totalBillPage.css";
 
 const TotalBill = () => {
   return (
@@ -12,10 +12,10 @@ const TotalBill = () => {
         <h1>SplitBill</h1>
       </header>
       <main id="billInfo">
-        <div id="billTotal">
-          <label htmlFor="bill-total" className="info">
+        <div className="billAmount">
+          <h3 htmlFor="bill-total" className="info">
             Bill Total
-          </label>
+          </h3>
           <div className="inputContainer">
             <span className="dollarSign">$</span>
             <input
@@ -26,25 +26,27 @@ const TotalBill = () => {
             />
           </div>
         </div>
-        <div id="tip">
+        <div className="billAmount">
           <h3 className="info">Tip Amount</h3>
           <div className="inputContainer">
             <span className="dollarSign">$</span>
             <input type="text" className="inputAmount" placeholder="0.00" />
           </div>
         </div>
-        <div id="total">
+        <div className="billAmount">
           <h3 className="info">Total</h3>
           <div className="inputContainer">
             <span className="dollarSign">$</span>
             <input type="text" className="inputAmount" placeholder="0.00" />
           </div>
         </div>
-        <div className="doneButton">
-          <Link to="numberOfPeople" style={{ textDecoration: "none" }}>
-            <h3>Next</h3>
-          </Link>
-        </div>
+        <Link
+          className="doneButton"
+          to="numberOfPeople"
+          style={{ textDecoration: "none" }}
+        >
+          <span>Next</span>
+        </Link>
       </main>
     </div>
   );
