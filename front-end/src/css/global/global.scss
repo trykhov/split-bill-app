@@ -1,5 +1,7 @@
-$fontHeader: "American Typewriter", "serif";
+$fontColor: #fff;
 $fontDesc: "Futura", "serif";
+$fontHeader: "American Typewriter", "serif";
+$mobileSize: 490px;
 
 $pageWidth: 80%;
 
@@ -12,18 +14,43 @@ $pageWidth: 80%;
 .appName {
   align-items: center;
   display: flex;
-  margin: 10px;
+  margin: 0 auto 10px;
   overflow: auto;
+  width: 90%;
+  .appLogo {
+    height: 10%;
+    margin: 10px 0;
+    width: 10%;
+    @media screen and (max-width: $mobileSize) {
+      height: 50px;
+      margin: 10px 0;
+      width: 50px;
+    }
+  }
   h1 {
-    color: #fff;
+    color: $fontColor;
     font-family: $fontHeader;
+    font-size: 3vw;
     margin-left: 5px;
+    @media screen and (max-width: $mobileSize) {
+      font-size: 20px;
+    }
   }
 }
 
-.appLogo {
-  height: 10%;
-  width: 10%;
+main {
+  margin: 0 auto;
+  width: 90%;
+  overflow: auto;
+  h2 {
+    color: #000000;
+    font-family: $fontDesc;
+    font-size: 3vw;
+    margin: 10px 0;
+    @media screen and (max-width: $mobileSize) {
+      font-size: 25px;
+    }
+  }
 }
 
 .doneButton {
@@ -37,5 +64,31 @@ $pageWidth: 80%;
   span {
     color: #fff;
     font-family: $fontDesc;
+  }
+}
+
+.formComponentContainers {
+  background: #fff;
+  border-radius: 25px;
+  margin: 15px auto;
+  overflow: auto;
+  padding: 15px;
+  position: relative;
+  width: 60%;
+  @media screen and (max-width: $mobileSize) {
+    width: 300px;
+  }
+  .amount {
+    float: right;
+    input {
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 20px;
+    }
+    span {
+      font-family: $fontDesc;
+      font-size: 20px;
+      margin-right: 5px;
+    }
   }
 }

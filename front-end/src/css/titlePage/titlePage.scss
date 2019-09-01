@@ -9,24 +9,20 @@
   overflow: auto;
   text-align: center;
   width: $pageWidth;
+  @media screen and (max-width: $mobileSize) {
+    margin: 40% auto;
+  }
 }
 
 #logo {
   display: block;
   height: 150px;
   margin: 10% auto;
+  @media (max-width: $mobileSize) {
+    margin: 20% auto;
+  }
 }
 
 #titleDesc {
   font-family: $fontDesc;
-}
-
-@media (max-width: 490px) {
-  #homepage {
-    margin: 40% auto;
-  }
-
-  #logo {
-    margin: 20% auto;
-  }
 }

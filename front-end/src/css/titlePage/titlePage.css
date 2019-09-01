@@ -5,19 +5,54 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 10px;
+  margin: 0 auto 10px;
   overflow: auto;
+  width: 90%;
+}
+
+.appName .appLogo {
+  height: 10%;
+  margin: 10px 0;
+  width: 10%;
+}
+
+@media screen and (max-width: 490px) {
+  .appName .appLogo {
+    height: 50px;
+    margin: 10px 0;
+    width: 50px;
+  }
 }
 
 .appName h1 {
   color: #fff;
   font-family: "American Typewriter", "serif";
+  font-size: 3vw;
   margin-left: 5px;
 }
 
-.appLogo {
-  height: 200px;
-  width: 200px;
+@media screen and (max-width: 490px) {
+  .appName h1 {
+    font-size: 20px;
+  }
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
+  overflow: auto;
+}
+
+main h2 {
+  color: #000000;
+  font-family: "Futura", "serif";
+  font-size: 3vw;
+}
+
+@media screen and (max-width: 490px) {
+  main h2 {
+    font-size: 25px;
+  }
 }
 
 .doneButton {
@@ -50,6 +85,18 @@
   font-family: "Futura", "serif";
 }
 
+.formContainer {
+  background: #fff;
+  border-radius: 25px;
+  overflow: auto;
+  padding: 15px;
+}
+
+.formContainer input {
+  border-radius: 15px;
+  padding: 10px 2px;
+}
+
 #homepage {
   color: #fff;
   font-family: "American Typewriter", "serif";
@@ -61,22 +108,25 @@
   width: 80%;
 }
 
+@media screen and (max-width: 490px) {
+  #homepage {
+    margin: 40% auto;
+  }
+}
+
 #logo {
   display: block;
   height: 150px;
   margin: 10% auto;
 }
 
-#titleDesc {
-  font-family: "Futura", "serif";
-}
-
 @media (max-width: 490px) {
-  #homepage {
-    margin: 40% auto;
-  }
   #logo {
     margin: 20% auto;
   }
+}
+
+#titleDesc {
+  font-family: "Futura", "serif";
 }
 /*# sourceMappingURL=titlePage.css.map */

@@ -5,19 +5,55 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 10px;
+  margin: 0 auto 10px;
   overflow: auto;
+  width: 90%;
+}
+
+.appName .appLogo {
+  height: 10%;
+  margin: 10px 0;
+  width: 10%;
+}
+
+@media screen and (max-width: 490px) {
+  .appName .appLogo {
+    height: 50px;
+    margin: 10px 0;
+    width: 50px;
+  }
 }
 
 .appName h1 {
   color: #fff;
   font-family: "American Typewriter", "serif";
+  font-size: 3vw;
   margin-left: 5px;
 }
 
-.appLogo {
-  height: 10%;
-  width: 10%;
+@media screen and (max-width: 490px) {
+  .appName h1 {
+    font-size: 20px;
+  }
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
+  overflow: auto;
+}
+
+main h2 {
+  color: #000000;
+  font-family: "Futura", "serif";
+  font-size: 3vw;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 490px) {
+  main h2 {
+    font-size: 25px;
+  }
 }
 
 .doneButton {
@@ -48,5 +84,37 @@
 .doneButton span {
   color: #fff;
   font-family: "Futura", "serif";
+}
+
+.formComponentContainers {
+  background: #fff;
+  border-radius: 25px;
+  margin: 15px auto;
+  overflow: auto;
+  padding: 15px;
+  position: relative;
+  width: 60%;
+}
+
+@media screen and (max-width: 490px) {
+  .formComponentContainers {
+    width: 300px;
+  }
+}
+
+.formComponentContainers .amount {
+  float: right;
+}
+
+.formComponentContainers .amount input {
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.formComponentContainers .amount span {
+  font-family: "Futura", "serif";
+  font-size: 20px;
+  margin-right: 5px;
 }
 /*# sourceMappingURL=global.css.map */

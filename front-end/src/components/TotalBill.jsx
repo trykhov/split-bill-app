@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import logo from "../logo.png";
 import "../css/totalBillPage/totalBillPage.css";
 
@@ -11,42 +11,37 @@ const TotalBill = () => {
         <img className="appLogo" src={logo} alt="logo" />
         <h1>SplitBill</h1>
       </header>
-      <main id="billInfo">
-        <div className="billAmount">
-          <h3 htmlFor="bill-total" className="info">
-            Bill Total
-          </h3>
-          <div className="inputContainer">
-            <span className="dollarSign">$</span>
-            <input
-              id="bill-total"
-              type="text"
-              className="inputAmount"
-              placeholder="0.00"
-            />
+      <main className="mainUI">
+        <form action="">
+          <div className="formComponentContainers">
+            <h2>Bill Amount</h2>
+            <div className="amount">
+              <span>$</span>
+              <input type="text" placeholder="0.00" />
+            </div>
           </div>
-        </div>
-        <div className="billAmount">
-          <h3 className="info">Tip Amount</h3>
-          <div className="inputContainer">
-            <span className="dollarSign">$</span>
-            <input type="text" className="inputAmount" placeholder="0.00" />
+          <div className="formComponentContainers">
+            <h2>Tip Percentage</h2>
+            <div className="amount">
+              <span>$</span>
+              <input type="text" placeholder="0.00" />
+            </div>
           </div>
-        </div>
-        <div className="billAmount">
-          <h3 className="info">Total</h3>
-          <div className="inputContainer">
-            <span className="dollarSign">$</span>
-            <input type="text" className="inputAmount" placeholder="0.00" />
+          <div className="formComponentContainers">
+            <h2>Number of People</h2>
+            <div className="amount">
+              <span>$</span>
+              <input type="text" placeholder="0.00" />
+            </div>
           </div>
-        </div>
-        <Link
-          className="doneButton"
-          to="numberOfPeople"
-          style={{ textDecoration: "none" }}
-        >
-          <span>Next</span>
-        </Link>
+          <div className="formComponentContainers">
+            <h2>Total</h2>
+            <div className="amount">
+              <span>$</span>
+              <input type="text" placeholder="0.00" />
+            </div>
+          </div>
+        </form>
       </main>
     </div>
   );

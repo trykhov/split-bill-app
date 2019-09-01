@@ -5,19 +5,55 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 10px;
+  margin: 0 auto 10px;
   overflow: auto;
+  width: 90%;
+}
+
+.appName .appLogo {
+  height: 10%;
+  margin: 10px 0;
+  width: 10%;
+}
+
+@media screen and (max-width: 490px) {
+  .appName .appLogo {
+    height: 50px;
+    margin: 10px 0;
+    width: 50px;
+  }
 }
 
 .appName h1 {
   color: #fff;
   font-family: "American Typewriter", "serif";
+  font-size: 3vw;
   margin-left: 5px;
 }
 
-.appLogo {
-  height: 10%;
-  width: 10%;
+@media screen and (max-width: 490px) {
+  .appName h1 {
+    font-size: 20px;
+  }
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
+  overflow: auto;
+}
+
+main h2 {
+  color: #000000;
+  font-family: "Futura", "serif";
+  font-size: 3vw;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 490px) {
+  main h2 {
+    font-size: 25px;
+  }
 }
 
 .doneButton {
@@ -50,57 +86,36 @@
   font-family: "Futura", "serif";
 }
 
-#billInfo {
-  margin: 0 auto;
+.formComponentContainers {
+  background: #fff;
+  border-radius: 25px;
+  margin: 15px auto;
   overflow: auto;
-  width: 30%;
+  padding: 15px;
+  position: relative;
+  width: 60%;
 }
 
-#billInfo .billAmount {
-  margin-bottom: 20px;
+@media screen and (max-width: 490px) {
+  .formComponentContainers {
+    width: 300px;
+  }
 }
 
-#billInfo * {
-  font-size: 20px;
-  overflow: auto;
+.formComponentContainers .amount {
+  float: right;
 }
 
-.dollarSign {
-  background-color: #e8e8e8;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  font-family: "Futura", "serif";
-  padding: 15px 10px;
-}
-
-.info {
-  color: #fff;
-  display: block;
-  font-family: "Futura", "serif";
-  margin-bottom: 2px;
-}
-
-.info [type="text"] {
-  border: none;
+.formComponentContainers .amount input {
+  border-radius: 15px;
+  padding: 15px;
   font-size: 20px;
 }
 
-input:focus::-webkit-input-placeholder {
-  /* allows placeholder value to disappear on click */
-  color: transparent;
-}
-
-.inputAmount {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding: 5px 7px;
-  width: 80%;
-}
-
-.inputContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.formComponentContainers .amount span {
+  font-family: "Futura", "serif";
+  font-size: 20px;
+  margin-right: 5px;
 }
 
 #totalBillPage {
