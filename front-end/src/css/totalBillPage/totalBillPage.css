@@ -47,7 +47,7 @@ main h2 {
   color: #000000;
   font-family: "Futura", "serif";
   font-size: 3vw;
-  margin: 10px 0;
+  margin: 10px 0 20px;
 }
 
 @media screen and (max-width: 490px) {
@@ -122,9 +122,65 @@ form {
   margin-right: 5px;
 }
 
-#totalBillPage {
-  height: 100%;
-  overflow: auto;
+.numberOfPeople {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  justify-items: center;
+  margin-bottom: 20px;
+  padding: 0 5%;
+  text-align: center;
+}
+
+@media screen and (max-width: 490px) {
+  .numberOfPeople {
+    padding: 0;
+  }
+}
+
+.numberOfPeople .plusSign,
+.numberOfPeople .minusSign {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#29b2e5),
+    to(#1c7ca7)
+  );
+  background: linear-gradient(#29b2e5, #1c7ca7);
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #fff;
+  font-family: "Futura", "serif";
+  font-size: 2.25vw;
+  padding: 5% 10%;
+}
+
+@media screen and (max-width: 900px) {
+  .numberOfPeople .plusSign,
+  .numberOfPeople .minusSign {
+    font-size: 15px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .numberOfPeople .plusSign,
+  .numberOfPeople .minusSign {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
+
+.numberOfPeople input {
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px 0;
+  text-align: center;
   width: 100%;
 }
 
@@ -161,5 +217,11 @@ form {
   font-family: "Futura", "serif";
   text-align: center;
   padding: 10px;
+}
+
+#totalBillPage {
+  height: 100%;
+  overflow: auto;
+  width: 100%;
 }
 /*# sourceMappingURL=totalBillPage.css.map */

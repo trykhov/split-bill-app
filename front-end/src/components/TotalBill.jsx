@@ -37,6 +37,17 @@ const TotalBill = () => {
           </div>
           <div className="formComponentContainers">
             <h2>Number of People</h2>
+            <div className="numberOfPeople">
+              <div className="plusSign">+</div>
+              <input
+                className="numPeople"
+                type="text"
+                name=""
+                id=""
+                placeholder="1"
+              />
+              <div className="minusSign">–</div>
+            </div>
             <div className="amount">
               <span>$</span>
               <input type="text" placeholder="0.00" />

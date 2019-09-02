@@ -1,9 +1,41 @@
 @import "../global/global";
 
-#totalBillPage {
-  height: 100%;
-  overflow: auto;
-  width: 100%;
+.numberOfPeople {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  justify-items: center;
+  margin-bottom: 20px;
+  padding: 0 5%;
+  text-align: center;
+  @media screen and (max-width: $mobileSize) {
+    padding: 0;
+  }
+  .plusSign,
+  .minusSign {
+    background: $backgroundColor;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: $fontColor;
+    font-family: $fontDesc;
+    font-size: 2.25vw;
+    padding: 5% 10%;
+    @media screen and (max-width: 900px) {
+      font-size: 15px;
+      padding: 20px;
+    }
+    @media screen and (max-width: $mobileSize) {
+      font-size: 20px;
+      padding: 10px;
+    }
+  }
+  input {
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 .percentageContainer {
@@ -24,4 +56,10 @@
     text-align: center;
     padding: 10px;
   }
+}
+
+#totalBillPage {
+  height: 100%;
+  overflow: auto;
+  width: 100%;
 }

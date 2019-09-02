@@ -47,7 +47,7 @@ main h2 {
   color: #000000;
   font-family: "Futura", "serif";
   font-size: 3vw;
-  margin: 10px 0;
+  margin: 10px 0 20px;
 }
 
 @media screen and (max-width: 490px) {

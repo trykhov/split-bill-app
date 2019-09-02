@@ -47,7 +47,7 @@ main {
     color: #000000;
     font-family: $fontDesc;
     font-size: 3vw;
-    margin: 10px 0;
+    margin: 10px 0 20px;
     @media screen and (max-width: $mobileSize) {
       font-size: 25px;
     }
