@@ -2,5 +2,26 @@
 
 #totalBillPage {
   height: 100%;
+  overflow: auto;
   width: 100%;
+}
+
+.percentageContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px 10%;
+  margin-bottom: 20px;
+  padding: 0 5%;
+  @media screen and (max-width: $mobileSize) {
+    padding: 0;
+  }
+  .percentage {
+    background: $backgroundColor;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: $fontColor;
+    font-family: $fontDesc;
+    text-align: center;
+    padding: 10px;
+  }
 }

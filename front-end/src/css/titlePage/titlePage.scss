@@ -4,7 +4,7 @@
   color: #fff;
   font-family: $fontHeader;
   font-size: 20px;
-  margin: 0 auto;
+  margin: 10% auto;
   letter-spacing: 1px;
   overflow: auto;
   text-align: center;
@@ -17,7 +17,7 @@
 #logo {
   display: block;
   height: 150px;
-  margin: 10% auto;
+  margin: 5% auto;
   @media (max-width: $mobileSize) {
     margin: 20% auto;
   }

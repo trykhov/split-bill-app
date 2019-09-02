@@ -22,6 +22,14 @@ const TotalBill = () => {
           </div>
           <div className="formComponentContainers">
             <h2>Tip Percentage</h2>
+            <div className="percentageContainer">
+              <div className="percentage">0%</div>
+              <div className="percentage">10%</div>
+              <div className="percentage">15%</div>
+              <div className="percentage">20%</div>
+              <div className="percentage">25%</div>
+              <div className="percentage">Custom</div>
+            </div>
             <div className="amount">
               <span>$</span>
               <input type="text" placeholder="0.00" />

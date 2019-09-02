@@ -47,6 +47,7 @@ main h2 {
   color: #000000;
   font-family: "Futura", "serif";
   font-size: 3vw;
+  margin: 10px 0;
 }
 
 @media screen and (max-width: 490px) {
@@ -85,23 +86,47 @@ main h2 {
   font-family: "Futura", "serif";
 }
 
-.formContainer {
-  background: #fff;
-  border-radius: 25px;
-  overflow: auto;
-  padding: 15px;
+form {
+  height: 100%;
 }
 
-.formContainer input {
+.formComponentContainers {
+  background: #fff;
+  border-radius: 25px;
+  margin: 15px auto;
+  overflow: auto;
+  padding: 15px;
+  position: relative;
+  width: 60%;
+}
+
+@media screen and (max-width: 490px) {
+  .formComponentContainers {
+    width: 300px;
+  }
+}
+
+.formComponentContainers .amount {
+  float: right;
+}
+
+.formComponentContainers .amount input {
   border-radius: 15px;
-  padding: 10px 2px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.formComponentContainers .amount span {
+  font-family: "Futura", "serif";
+  font-size: 20px;
+  margin-right: 5px;
 }
 
 #homepage {
   color: #fff;
   font-family: "American Typewriter", "serif";
   font-size: 20px;
-  margin: 0 auto;
+  margin: 10% auto;
   letter-spacing: 1px;
   overflow: auto;
   text-align: center;
@@ -117,7 +142,7 @@ main h2 {
 #logo {
   display: block;
   height: 150px;
-  margin: 10% auto;
+  margin: 5% auto;
 }
 
 @media (max-width: 490px) {

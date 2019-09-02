@@ -1,3 +1,4 @@
+$backgroundColor: linear-gradient(#29b2e5, #1c7ca7);
 $fontColor: #fff;
 $fontDesc: "Futura", "serif";
 $fontHeader: "American Typewriter", "serif";
@@ -55,7 +56,7 @@ main {
 
 .doneButton {
   @include verticalCenter();
-  background: linear-gradient(#29b2e5, #1c7ca7);
+  background: $backgroundColor;
   border-radius: 16px;
   height: 60px;
   margin: 40px auto;
@@ -65,6 +66,10 @@ main {
     color: #fff;
     font-family: $fontDesc;
   }
+}
+
+form {
+  height: 100%;
 }
 
 .formComponentContainers {

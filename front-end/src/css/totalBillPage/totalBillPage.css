@@ -86,6 +86,10 @@ main h2 {
   font-family: "Futura", "serif";
 }
 
+form {
+  height: 100%;
+}
+
 .formComponentContainers {
   background: #fff;
   border-radius: 25px;
@@ -120,6 +124,42 @@ main h2 {
 
 #totalBillPage {
   height: 100%;
+  overflow: auto;
   width: 100%;
+}
+
+.percentageContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px 10%;
+  margin-bottom: 20px;
+  padding: 0 5%;
+}
+
+@media screen and (max-width: 490px) {
+  .percentageContainer {
+    padding: 0;
+  }
+}
+
+.percentageContainer .percentage {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#29b2e5),
+    to(#1c7ca7)
+  );
+  background: linear-gradient(#29b2e5, #1c7ca7);
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #fff;
+  font-family: "Futura", "serif";
+  text-align: center;
+  padding: 10px;
 }
 /*# sourceMappingURL=totalBillPage.css.map */

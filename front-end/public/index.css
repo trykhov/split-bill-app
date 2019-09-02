@@ -1,16 +1,12 @@
-html {
+html,
+body {
   background: linear-gradient(rgb(28, 111, 172), rgb(58, 14, 86));
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-}
-body {
   margin: 0;
   overflow: auto;
-}
-
-#root {
-  height: 100%;
+  padding: 0;
 }
 
 @media (min-width: 400px) {

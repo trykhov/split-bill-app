@@ -86,6 +86,10 @@ main h2 {
   font-family: "Futura", "serif";
 }
 
+form {
+  height: 100%;
+}
+
 .formComponentContainers {
   background: #fff;
   border-radius: 25px;
