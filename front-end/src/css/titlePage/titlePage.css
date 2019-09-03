@@ -122,6 +122,22 @@ form {
   margin-right: 5px;
 }
 
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
 #homepage {
   color: #fff;
   font-family: "American Typewriter", "serif";

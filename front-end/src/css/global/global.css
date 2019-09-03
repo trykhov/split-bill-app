@@ -121,4 +121,20 @@ form {
   font-size: 20px;
   margin-right: 5px;
 }
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
 /*# sourceMappingURL=global.css.map */
