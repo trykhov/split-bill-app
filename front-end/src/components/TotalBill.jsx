@@ -18,22 +18,16 @@ class TotalBill extends React.Component {
   // ************************************************** subtotal ************************************************
 
   inputSubtotal = subtotal => {
-    this.setState({ billAmount: subtotal.target.value }, () => {
-      // using a callback to get the total sum when the billMount is updated
-      const { billAmount, tipAmount } = this.state;
-      const confirmSubtotal = this.obeysRegExp(billAmount);
-      const confirmTipAmount = this.obeysRegExp(tipAmount);
-      if (confirmSubtotal && confirmTipAmount) {
-        const sum = parseFloat(billAmount) + parseFloat(tipAmount);
-        sum.toFixed(2);
-        this.setState({ total: sum.toFixed(2) });
-      }
-    });
+    this.setState({ billAmount: subtotal.target.value }, () =>
+      this.calculateTotalCallback()
+    );
   };
 
   // ************************************************** tipping **************************************************
   inputTip = tip => {
-    this.setState({ tipAmount: tip.target.value });
+    this.setState({ tipAmount: tip.target.value }, () =>
+      this.calculateTotalCallback()
+    );
   };
 
   giveTip = percentage => {
@@ -41,7 +35,9 @@ class TotalBill extends React.Component {
     const confirmSubtotal = this.obeysRegExp(billAmount);
     if (confirmSubtotal) {
       const tipToPay = (parseFloat(billAmount) * percentage).toFixed(2);
-      this.setState({ tipAmount: parseFloat(tipToPay) });
+      this.setState({ tipAmount: parseFloat(tipToPay) }, () =>
+        this.calculateTotalCallback()
+      );
     }
   };
 
@@ -77,6 +73,18 @@ class TotalBill extends React.Component {
     // checks if they follow regular expression pattern
     const regExp = /^[0-9]+(\.[0-9]{1,2})?$/;
     return regExp.test(value);
+  };
+
+  calculateTotalCallback = () => {
+    // using a callback to get the total sum when the billMount is updated
+    const { billAmount, tipAmount } = this.state;
+    const confirmSubtotal = this.obeysRegExp(billAmount);
+    const confirmTipAmount = this.obeysRegExp(tipAmount);
+    if (confirmSubtotal && confirmTipAmount) {
+      const sum = parseFloat(billAmount) + parseFloat(tipAmount);
+      sum.toFixed(2);
+      this.setState({ total: sum.toFixed(2) });
+    }
   };
 
   callWarning = (call, type) => {
