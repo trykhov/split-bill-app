@@ -8,36 +8,41 @@ class TotalBill extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      billAmount: (0.0).toFixed(2),
-      tipAmount: (0.0).toFixed(2),
+      billAmount: 0,
+      tipAmount: 0,
       number: 1,
-      total: (0.0).toFixed(2),
-      warning: false
+      total: 0
     };
   }
 
   // ************************************************** subtotal ************************************************
 
-  billWithoutTip = subTotal => {
-    const money = /^[0-9]+(\.[0-9]{1,2})?$/;
-    if (money.test(subTotal.target.value)) {
-      const convertToFloat = parseFloat(subTotal.target.value);
-      this.setState({ billAmount: convertToFloat, warning: false });
-    } else {
-      this.setState({ tipAmount: 0, total: 0, warning: true });
-    }
+  inputSubtotal = subtotal => {
+    this.setState({ billAmount: subtotal.target.value }, () => {
+      // using a callback to get the total sum when the billMount is updated
+      const { billAmount, tipAmount } = this.state;
+      const confirmSubtotal = this.obeysRegExp(billAmount);
+      const confirmTipAmount = this.obeysRegExp(tipAmount);
+      if (confirmSubtotal && confirmTipAmount) {
+        const sum = parseFloat(billAmount) + parseFloat(tipAmount);
+        sum.toFixed(2);
+        this.setState({ total: sum.toFixed(2) });
+      }
+    });
   };
 
   // ************************************************** tipping **************************************************
-  customTip = tip => {
-    // users can enter their own tip
+  inputTip = tip => {
     this.setState({ tipAmount: tip.target.value });
   };
 
   giveTip = percentage => {
     const { billAmount } = this.state;
-    const tip = parseFloat(billAmount * percentage);
-    this.setState({ tipAmount: tip.toFixed(2) });
+    const confirmSubtotal = this.obeysRegExp(billAmount);
+    if (confirmSubtotal) {
+      const tipToPay = (parseFloat(billAmount) * percentage).toFixed(2);
+      this.setState({ tipAmount: parseFloat(tipToPay) });
+    }
   };
 
   // ************************** adding or subtracting number of people **********************************
@@ -63,19 +68,20 @@ class TotalBill extends React.Component {
   };
 
   // ********************************************** total bill **********************************************
-  customTotal = total => {
-    let convertToInt = total.target.value;
-    if (convertToInt !== "") {
-      convertToInt = parseFloat(convertToInt);
-      this.setState({ total: convertToInt });
-    } else {
-      this.setState({ total: convertToInt });
-    }
+  inputTotal = total => {
+    this.setState({ total: total.target.value });
   };
   // ********************************************** Call Warning ********************************************
 
+  obeysRegExp = value => {
+    // checks if they follow regular expression pattern
+    const regExp = /^[0-9]+(\.[0-9]{1,2})?$/;
+    return regExp.test(value);
+  };
+
   callWarning = (call, type) => {
-    if (call) {
+    const regExp = /^[0-9]+(\.[0-9]{1,2})?$/;
+    if (!regExp.test(call)) {
       switch (type) {
         case "PEOPLE":
           return (
@@ -98,7 +104,7 @@ class TotalBill extends React.Component {
   // ********************************************************************************************************
 
   render() {
-    const { tipAmount, number, total, warning } = this.state;
+    const { billAmount, tipAmount, number, total } = this.state;
     return (
       <div id="totalBillPage">
         <header className="appName">
@@ -116,10 +122,10 @@ class TotalBill extends React.Component {
                   id="subtotal"
                   type="text"
                   placeholder="0.00"
-                  onChange={this.billWithoutTip}
+                  onChange={this.inputSubtotal}
                 />
               </div>
-              {this.callWarning(warning, "AMOUNT")}
+              {this.callWarning(billAmount, "AMOUNT")}
             </div>
             <div className="formComponentContainers">
               <h2>Tip Percentage</h2>
@@ -168,10 +174,11 @@ class TotalBill extends React.Component {
                 <input
                   type="text"
                   placeholder="0.00"
-                  onChange={this.customTip}
+                  onChange={this.inputTip}
                   value={tipAmount}
                 />
               </div>
+              {this.callWarning(tipAmount, "AMOUNT")}
             </div>
             <div className="formComponentContainers">
               <h2>Number of People</h2>
@@ -211,7 +218,7 @@ class TotalBill extends React.Component {
                 <input
                   type="text"
                   placeholder="0.00"
-                  onChange={this.customTotal}
+                  onChange={this.inputTotal}
                   value={total}
                 />
               </div>
