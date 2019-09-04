@@ -44,9 +44,9 @@ class TotalBill extends React.Component {
   // ************************** adding or subtracting number of people **********************************
   addSubtractPeople = amount => {
     const { number } = this.state;
-    if (number > 0) {
+    if (number > 1) {
       this.setState({ number: number + amount });
-    } else if (number === 0 && amount > 0) {
+    } else if (number === 1 && amount > 0) {
       this.setState({ number: number + amount });
     } else if (number === "" && amount > 0) {
       this.setState({ number: amount });
@@ -55,9 +55,12 @@ class TotalBill extends React.Component {
 
   customNumber = amount => {
     let convertToInt = amount.target.value;
-    if (convertToInt !== "") {
+    const confirmNumber = this.obeysRegExp(convertToInt);
+    if (confirmNumber) {
       convertToInt = parseInt(convertToInt, 10);
-      this.setState({ number: convertToInt });
+      if (convertToInt > 0) {
+        this.setState({ number: convertToInt });
+      }
     } else {
       this.setState({ number: convertToInt });
     }
@@ -65,7 +68,9 @@ class TotalBill extends React.Component {
 
   // ********************************************** total bill **********************************************
   inputTotal = total => {
-    this.setState({ total: total.target.value });
+    this.setState({ total: total.target.value }, () =>
+      this.calculateTipCallback()
+    );
   };
   // ********************************************** Call Warning ********************************************
 
@@ -82,14 +87,28 @@ class TotalBill extends React.Component {
     const confirmTipAmount = this.obeysRegExp(tipAmount);
     if (confirmSubtotal && confirmTipAmount) {
       const sum = parseFloat(billAmount) + parseFloat(tipAmount);
-      sum.toFixed(2);
       this.setState({ total: sum.toFixed(2) });
     }
   };
 
+  calculateTipCallback = () => {
+    // in case some knows how much they want to pay in total but they don't know the tip
+    const { billAmount, total } = this.state;
+    const confirmSubtotal = this.obeysRegExp(billAmount);
+    const confirmTotal = this.obeysRegExp(total);
+    if (confirmSubtotal && confirmTotal) {
+      const diff = parseFloat(total) - parseFloat(billAmount);
+      if (diff >= 0) {
+        this.setState({ tipAmount: diff.toFixed(2) });
+      } else {
+        this.setState({ tipAmount: 0 });
+      }
+    }
+  };
+
   callWarning = (call, type) => {
-    const regExp = /^[0-9]+(\.[0-9]{1,2})?$/;
-    if (!regExp.test(call)) {
+    const confirmInput = this.obeysRegExp(call);
+    if (!confirmInput) {
       switch (type) {
         case "PEOPLE":
           return (
@@ -215,8 +234,12 @@ class TotalBill extends React.Component {
                   –
                 </button>
               </div>
+              {this.callWarning(number, "PEOPLE")}
               <div className="amount">
-                <span>Each person owes you: ${number}</span>
+                <span>
+                  Each person owes you: $
+                  {number > 0 ? (total / number).toFixed(2) : 0}
+                </span>
               </div>
             </div>
             <div className="formComponentContainers">
@@ -230,6 +253,7 @@ class TotalBill extends React.Component {
                   value={total}
                 />
               </div>
+              {this.callWarning(total, "AMOUNT")}
             </div>
           </form>
         </main>

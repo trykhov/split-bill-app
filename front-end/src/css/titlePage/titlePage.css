@@ -125,7 +125,10 @@ form {
 .formComponentContainers .warning {
   clear: right;
   color: red;
-  margin: 10px 0 0;
+  display: block;
+  font-family: "Futura", "serif";
+  padding: 20px 0 0;
+  text-align: center;
 }
 
 input:focus::-webkit-input-placeholder {
