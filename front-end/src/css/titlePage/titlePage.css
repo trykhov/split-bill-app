@@ -122,6 +122,12 @@ form {
   margin-right: 5px;
 }
 
+.formComponentContainers .warning {
+  clear: right;
+  color: red;
+  margin: 10px 0 0;
+}
+
 input:focus::-webkit-input-placeholder {
   color: transparent;
 }

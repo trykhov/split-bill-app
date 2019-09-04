@@ -122,6 +122,14 @@ form {
   margin-right: 5px;
 }
 
+.formComponentContainers .warning {
+  clear: right;
+  color: red;
+  display: block;
+  padding: 20px 0 0;
+  text-align: center;
+}
+
 input:focus::-webkit-input-placeholder {
   color: transparent;
 }
@@ -231,8 +239,19 @@ input:focus::placeholder {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: #fff;
   font-family: "Futura", "serif";
+  font-size: 2vw;
   text-align: center;
   padding: 10px;
+}
+
+.percentageContainer .percentage:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 490px) {
+  .percentageContainer .percentage {
+    font-size: 20px;
+  }
 }
 
 #totalBillPage {

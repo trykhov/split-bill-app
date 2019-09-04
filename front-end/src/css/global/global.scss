@@ -96,6 +96,13 @@ form {
       margin-right: 5px;
     }
   }
+  .warning {
+    clear: right;
+    color: red;
+    display: block;
+    padding: 20px 0 0;
+    text-align: center;
+  }
 }
 
 input:focus::placeholder {
