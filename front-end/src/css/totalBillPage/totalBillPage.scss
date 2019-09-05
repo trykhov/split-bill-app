@@ -20,6 +20,7 @@
     font-family: $fontDesc;
     font-size: 2.25vw;
     padding: 5% 10%;
+    @extend button;
     @media screen and (max-width: 900px) {
       font-size: 15px;
       padding: 20px;
@@ -35,6 +36,36 @@
     padding: 10px 0;
     text-align: center;
     width: 100%;
+  }
+}
+
+#numTitle {
+  @include verticalCenter();
+  justify-content: space-between;
+  #indivPay {
+    background: $backgroundColor;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #fff;
+    font-family: "Futura", "serif";
+    font-size: 2vw;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    @extend button;
+    @media screen and (max-width: $mobileSize) {
+      font-size: 15px;
+    }
+  }
+}
+
+.owe {
+  font-family: "Futura", "serif";
+  font-size: 2vw;
+  text-align: center;
+  @media screen and (max-width: $mobileSize) {
+    font-size: 20px;
   }
 }
 
@@ -56,9 +87,7 @@
     font-size: 2vw;
     text-align: center;
     padding: 10px;
-    &:hover {
-      cursor: pointer;
-    }
+    @extend button;
     @media screen and (max-width: $mobileSize) {
       font-size: 20px;
     }

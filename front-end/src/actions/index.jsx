@@ -1,25 +1,25 @@
-export const subTotal = sub => {
+export const addSubtotal = sub => {
   return {
     type: "SUBTOTAL",
     payload: sub
   };
 };
 
-export const tipPercentage = (percentage, subtotal) => {
+export const addTip = amount => {
   return {
     type: "TIP",
-    payload: (subtotal + percentage * subtotal).toFixed(2)
+    payload: amount
   };
 };
 
-export const numPeople = num => {
+export const addPeople = num => {
   return {
     type: "NUMBER_OF_PEOPLE",
     payload: num
   };
 };
 
-export const billTotal = total => {
+export const addTotal = total => {
   return {
     type: "TOTAL",
     payload: total

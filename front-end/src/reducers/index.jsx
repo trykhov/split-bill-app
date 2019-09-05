@@ -21,7 +21,7 @@ const tip = (withTip = 0, action) => {
 const addPeople = (num = 0, action) => {
   switch (action.type) {
     case "NUMBER_OF_PEOPLE":
-      return action.payload + num;
+      return action.payload;
     default:
       return num;
   }
@@ -30,7 +30,7 @@ const addPeople = (num = 0, action) => {
 const entireBill = (total = 0, action) => {
   switch (action.type) {
     case "TOTAL":
-      return action.payload + total;
+      return action.payload;
     default:
       return total;
   }

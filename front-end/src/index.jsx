@@ -4,9 +4,10 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducers from "./reducers";
+import EditUser from "./components/EditUser";
+import NumPeople from "./components/NumPeople";
 import TitlePage from "./components/TitlePage";
 import TotalBill from "./components/TotalBill";
-import NumPeople from "./components/NumPeople";
 
 const store = createStore(reducers);
 
@@ -16,6 +17,7 @@ ReactDOM.render(
       <Route path="/" component={TitlePage} exact />
       <Route path="/billInfo" component={TotalBill} />
       <Route path="/numberOfPeople" component={NumPeople} />
+      <Route path="/individualpayments" component={EditUser} />
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")

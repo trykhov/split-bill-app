@@ -1,4 +1,5 @@
 $backgroundColor: linear-gradient(#29b2e5, #1c7ca7);
+$backgroundAlter: linear-gradient(#147497, #08364b);
 $fontColor: #fff;
 $fontDesc: "Futura", "serif";
 $fontHeader: "American Typewriter", "serif";
@@ -36,6 +37,19 @@ $pageWidth: 80%;
     @media screen and (max-width: $mobileSize) {
       font-size: 20px;
     }
+  }
+}
+
+button {
+  &:active {
+    background: $backgroundAlter;
+  }
+  &:hover {
+    box-shadow: none;
+    cursor: pointer;
+  }
+  &:focus {
+    outline: 0;
   }
 }
 

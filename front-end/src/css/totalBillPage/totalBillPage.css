@@ -37,6 +37,39 @@
   }
 }
 
+button:active,
+.numberOfPeople .plusSign:active,
+.numberOfPeople .minusSign:active,
+#numTitle #indivPay:active,
+.percentageContainer .percentage:active {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#147497),
+    to(#08364b)
+  );
+  background: linear-gradient(#147497, #08364b);
+}
+
+button:hover,
+.numberOfPeople .plusSign:hover,
+.numberOfPeople .minusSign:hover,
+#numTitle #indivPay:hover,
+.percentageContainer .percentage:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+button:focus,
+.numberOfPeople .plusSign:focus,
+.numberOfPeople .minusSign:focus,
+#numTitle #indivPay:focus,
+.percentageContainer .percentage:focus {
+  outline: 0;
+}
+
 main {
   margin: 0 auto;
   width: 90%;
@@ -216,6 +249,61 @@ input:focus::placeholder {
   width: 100%;
 }
 
+#numTitle {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+#numTitle #indivPay {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#29b2e5),
+    to(#1c7ca7)
+  );
+  background: linear-gradient(#29b2e5, #1c7ca7);
+  border-radius: 15px;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #fff;
+  font-family: "Futura", "serif";
+  font-size: 2vw;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 490px) {
+  #numTitle #indivPay {
+    font-size: 15px;
+  }
+}
+
+.owe {
+  font-family: "Futura", "serif";
+  font-size: 2vw;
+  text-align: center;
+}
+
+@media screen and (max-width: 490px) {
+  .owe {
+    font-size: 20px;
+  }
+}
+
 .percentageContainer {
   display: -ms-grid;
   display: grid;
@@ -250,10 +338,6 @@ input:focus::placeholder {
   font-size: 2vw;
   text-align: center;
   padding: 10px;
-}
-
-.percentageContainer .percentage:hover {
-  cursor: pointer;
 }
 
 @media screen and (max-width: 490px) {

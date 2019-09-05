@@ -1,12 +1,13 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import logo from "../logo.png";
 import "../css/totalBillPage/totalBillPage.css";
+import { addSubtotal, addTip, addPeople, addTotal } from "../actions";
 
 class TotalBill extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       billAmount: 0,
       tipAmount: 0,
@@ -46,10 +47,14 @@ class TotalBill extends React.Component {
     const { number } = this.state;
     if (number > 1) {
       this.setState({ number: number + amount });
+      // eslint-disable-next-line react/prop-types, no-shadow
+      const { addPeople } = this.props;
+      addPeople(number + amount);
     } else if (number === 1 && amount > 0) {
       this.setState({ number: number + amount });
-    } else if (number === "" && amount > 0) {
-      this.setState({ number: amount });
+      // eslint-disable-next-line react/prop-types, no-shadow
+      const { addPeople } = this.props;
+      addPeople(number + amount);
     }
   };
 
@@ -60,6 +65,9 @@ class TotalBill extends React.Component {
       convertToInt = parseInt(convertToInt, 10);
       if (convertToInt > 0) {
         this.setState({ number: convertToInt });
+        // eslint-disable-next-line react/prop-types, no-shadow
+        const { addPeople } = this.props;
+        addPeople(convertToInt);
       }
     } else {
       this.setState({ number: convertToInt });
@@ -87,7 +95,13 @@ class TotalBill extends React.Component {
     const confirmTipAmount = this.obeysRegExp(tipAmount);
     if (confirmSubtotal && confirmTipAmount) {
       const sum = parseFloat(billAmount) + parseFloat(tipAmount);
-      this.setState({ total: sum.toFixed(2) });
+      this.setState({ total: sum.toFixed(2) }, () => {
+        // eslint-disable-next-line react/prop-types, no-shadow
+        const { addSubtotal, addTip, addTotal } = this.props;
+        addSubtotal(parseFloat(billAmount));
+        addTip(parseFloat(tipAmount));
+        addTotal(sum.toFixed(2));
+      });
     }
   };
 
@@ -99,7 +113,13 @@ class TotalBill extends React.Component {
     if (confirmSubtotal && confirmTotal) {
       const diff = parseFloat(total) - parseFloat(billAmount);
       if (diff >= 0) {
-        this.setState({ tipAmount: diff.toFixed(2) });
+        this.setState({ tipAmount: diff.toFixed(2) }, () => {
+          // eslint-disable-next-line react/prop-types, no-shadow
+          const { addSubtotal, addTip, addTotal } = this.props;
+          addSubtotal(parseFloat(billAmount));
+          addTip(diff.toFixed(2));
+          addTotal(parseFloat(total));
+        });
       } else {
         this.setState({ tipAmount: 0 });
       }
@@ -208,7 +228,13 @@ class TotalBill extends React.Component {
               {this.callWarning(tipAmount, "AMOUNT")}
             </div>
             <div className="formComponentContainers">
-              <h2>Number of People</h2>
+              <div id="numTitle">
+                <h2>Number of People</h2>
+                <Link to="/individualpayments" id="indivPay">
+                  Individual Payments
+                </Link>
+              </div>
+
               <div className="numberOfPeople">
                 <button
                   type="button"
@@ -235,7 +261,7 @@ class TotalBill extends React.Component {
                 </button>
               </div>
               {this.callWarning(number, "PEOPLE")}
-              <div className="amount">
+              <div className="owe">
                 <span>
                   Each person owes you: $
                   {number > 0 ? (total / number).toFixed(2) : 0}
@@ -271,4 +297,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TotalBill);
+export default connect(
+  mapStateToProps,
+  { addSubtotal, addTip, addPeople, addTotal }
+)(TotalBill);
