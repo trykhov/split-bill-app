@@ -1,40 +1,10 @@
-.appName {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 auto 10px;
-  overflow: auto;
-  width: 90%;
-}
-
-.appName .appLogo {
-  height: 10%;
-  margin: 10px 0;
-  width: 10%;
-}
-
-@media screen and (max-width: 490px) {
-  .appName .appLogo {
-    height: 50px;
-    margin: 10px 0;
-    width: 50px;
-  }
-}
-
-.appName h1 {
+button {
+  background: #26a6d8;
+  border-radius: 0;
   color: #fff;
-  font-family: "American Typewriter", "serif";
-  font-size: 3vw;
-  margin-left: 5px;
-}
-
-@media screen and (max-width: 490px) {
-  .appName h1 {
-    font-size: 20px;
-  }
+  font-family: "Futura", "serif";
+  padding: 10px;
+  font-size: 20px;
 }
 
 button:active {
@@ -58,120 +28,97 @@ button:focus {
   outline: 0;
 }
 
-main {
-  margin: 0 auto;
-  width: 90%;
+section {
+  width: 100%;
   overflow: auto;
+  position: relative;
 }
 
-main h2 {
-  color: #000000;
+section header {
+  color: #fff;
   font-family: "Futura", "serif";
-  font-size: 3vw;
-  margin: 10px 0 20px;
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
 }
 
-@media screen and (max-width: 490px) {
-  main h2 {
-    font-size: 25px;
+section main {
+  margin: 0 auto;
+  padding: 0;
+  width: 390px;
+}
+
+@media screen and (max-width: 390px) {
+  section main {
+    font-size: 20px;
+    width: 80%;
   }
 }
 
-.doneButton {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#29b2e5),
-    to(#1c7ca7)
-  );
-  background: linear-gradient(#29b2e5, #1c7ca7);
-  border-radius: 16px;
-  height: 60px;
-  margin: 40px auto;
-  text-decoration: none;
-  width: 150px;
+section main form {
+  margin: 0 auto;
+  width: 100%;
 }
 
-.doneButton span {
+section main form label {
   color: #fff;
   font-family: "Futura", "serif";
 }
 
-form {
-  height: 100%;
-}
-
-.formComponentContainers {
+section main .formComponentContainers {
   background: #fff;
-  border-radius: 25px;
-  margin: 15px auto;
+  border-radius: 0;
+  margin: 10px 0;
   overflow: auto;
-  padding: 15px;
-  position: relative;
-  width: 60%;
+  width: 100%;
 }
 
-@media screen and (max-width: 490px) {
-  .formComponentContainers {
-    width: 300px;
-  }
-}
-
-.formComponentContainers .amount {
+section main .formComponentContainers .inputContainer {
   float: right;
 }
 
-.formComponentContainers .amount input {
-  border-radius: 15px;
-  padding: 15px;
-  font-size: 20px;
-}
-
-.formComponentContainers .amount span {
+section main .formComponentContainers .inputContainer span {
   font-family: "Futura", "serif";
   font-size: 20px;
-  margin-right: 5px;
 }
 
-.formComponentContainers .warning {
-  clear: right;
-  color: red;
-  display: block;
-  font-family: "Futura", "serif";
-  font-size: 2vw;
-  padding: 20px 0 0;
-  text-align: center;
+section main .formComponentContainers .inputContainer input {
+  border: 0;
+  border-radius: 0;
+  font-size: 20px;
+  padding: 10px 0 10px 5px;
 }
 
-@media screen and (max-width: 490px) {
-  .formComponentContainers .warning {
-    font-size: 20px;
-  }
-}
-
-input:focus::-webkit-input-placeholder {
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-input:focus:-ms-input-placeholder {
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-input:focus::-ms-input-placeholder {
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus::-ms-input-placeholder {
   color: transparent;
 }
 
-input:focus::placeholder {
+section main .formComponentContainers .inputContainer input:focus::placeholder {
   color: transparent;
+}
+
+section main .formComponentContainers hr {
+  margin: 0 auto;
+  width: 90%;
 }
 /*# sourceMappingURL=global.css.map */

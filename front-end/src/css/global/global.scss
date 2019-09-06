@@ -1,11 +1,8 @@
-$backgroundColor: linear-gradient(#29b2e5, #1c7ca7);
 $backgroundAlter: linear-gradient(#147497, #08364b);
+$buttonColor: #26a6d8;
 $fontColor: #fff;
 $fontDesc: "Futura", "serif";
-$fontHeader: "American Typewriter", "serif";
-$mobileSize: 490px;
-
-$pageWidth: 80%;
+$mobileSize: 390px;
 
 @mixin verticalCenter {
   align-items: center;
@@ -13,34 +10,13 @@ $pageWidth: 80%;
   justify-content: center;
 }
 
-.appName {
-  align-items: center;
-  display: flex;
-  margin: 0 auto 10px;
-  overflow: auto;
-  width: 90%;
-  .appLogo {
-    height: 10%;
-    margin: 10px 0;
-    width: 10%;
-    @media screen and (max-width: $mobileSize) {
-      height: 50px;
-      margin: 10px 0;
-      width: 50px;
-    }
-  }
-  h1 {
-    color: $fontColor;
-    font-family: $fontHeader;
-    font-size: 3vw;
-    margin-left: 5px;
-    @media screen and (max-width: $mobileSize) {
-      font-size: 20px;
-    }
-  }
-}
-
 button {
+  background: $buttonColor;
+  border-radius: 0;
+  color: $fontColor;
+  font-family: $fontDesc;
+  padding: 10px;
+  font-size: 20px;
   &:active {
     background: $backgroundAlter;
   }
@@ -53,77 +29,59 @@ button {
   }
 }
 
-main {
-  margin: 0 auto;
-  width: 90%;
+section {
+  width: 100%;
   overflow: auto;
-  h2 {
-    color: #000000;
-    font-family: $fontDesc;
-    font-size: 3vw;
-    margin: 10px 0 20px;
-    @media screen and (max-width: $mobileSize) {
-      font-size: 25px;
-    }
-  }
-}
-
-.doneButton {
-  @include verticalCenter();
-  background: $backgroundColor;
-  border-radius: 16px;
-  height: 60px;
-  margin: 40px auto;
-  text-decoration: none;
-  width: 150px;
-  span {
-    color: #fff;
-    font-family: $fontDesc;
-  }
-}
-
-form {
-  height: 100%;
-}
-
-.formComponentContainers {
-  background: #fff;
-  border-radius: 25px;
-  margin: 15px auto;
-  overflow: auto;
-  padding: 15px;
   position: relative;
-  width: 60%;
-  @media screen and (max-width: $mobileSize) {
-    width: 300px;
-  }
-  .amount {
-    float: right;
-    input {
-      border-radius: 15px;
-      padding: 15px;
-      font-size: 20px;
-    }
-    span {
-      font-family: $fontDesc;
-      font-size: 20px;
-      margin-right: 5px;
-    }
-  }
-  .warning {
-    clear: right;
-    color: red;
-    display: block;
-    font-family: "Futura", "serif";
-    font-size: 2vw;
-    padding: 20px 0 0;
+  header {
+    color: $fontColor;
+    font-family: $fontDesc;
+    margin: 0 auto;
     text-align: center;
+    width: 80%;
+  }
+  main {
+    margin: 0 auto;
+    padding: 0;
+    width: $mobileSize;
     @media screen and (max-width: $mobileSize) {
       font-size: 20px;
+      width: 80%;
+    }
+    form {
+      margin: 0 auto;
+      width: 100%;
+      label {
+        color: #fff;
+        font-family: $fontDesc;
+      }
+    }
+    .formComponentContainers {
+      background: #fff;
+      border-radius: 0;
+      margin: 10px 0;
+      overflow: auto;
+      width: 100%;
+      .inputContainer {
+        float: right;
+        span {
+          font-family: $fontDesc;
+          font-size: 20px;
+        }
+        input {
+          border: 0;
+          border-radius: 0;
+          font-size: 20px;
+          padding: 10px 0 10px 5px;
+          &:focus::placeholder {
+            color: transparent;
+          }
+        }
+      }
+      hr {
+        margin: 0 auto;
+        width: 90%;
+      }
     }
   }
-}
-
-input:focus::placeholder {
-  color: transparent;
 }

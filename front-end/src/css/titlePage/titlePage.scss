@@ -1,16 +1,23 @@
 @import "../global/global";
 
 #homepage {
-  color: #fff;
-  font-family: $fontHeader;
-  font-size: 20px;
   margin: 10% auto;
-  letter-spacing: 1px;
-  overflow: auto;
   text-align: center;
-  width: $pageWidth;
+  width: 80%;
   @media screen and (max-width: $mobileSize) {
-    margin: 40% auto;
+    margin: 50% auto;
+  }
+  .doneButton {
+    background: $buttonColor;
+    border-radius: 15px;
+    color: #fff;
+    display: block;
+    font-family: $fontDesc;
+    font-size: 20px;
+    margin: 20px auto;
+    padding: 10px;
+    text-decoration: none;
+    width: 60px;
   }
 }
 
@@ -19,10 +26,11 @@
   height: 150px;
   margin: 5% auto;
   @media (max-width: $mobileSize) {
-    margin: 20% auto;
+    margin: 10% auto;
   }
 }
 
 #titleDesc {
+  color: #fff;
   font-family: $fontDesc;
 }

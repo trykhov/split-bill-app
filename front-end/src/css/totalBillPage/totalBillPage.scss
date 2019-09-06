@@ -1,71 +1,30 @@
 @import "../global/global";
 
-.numberOfPeople {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 20px;
-  justify-items: center;
-  margin-bottom: 20px;
-  padding: 0 5%;
-  text-align: center;
-  @media screen and (max-width: $mobileSize) {
-    padding: 0;
-  }
-  .plusSign,
-  .minusSign {
-    background: $backgroundColor;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: $fontColor;
-    font-family: $fontDesc;
-    font-size: 2.25vw;
-    padding: 5% 10%;
-    @extend button;
-    @media screen and (max-width: 900px) {
-      font-size: 15px;
-      padding: 20px;
-    }
-    @media screen and (max-width: $mobileSize) {
-      font-size: 20px;
-      padding: 10px;
-    }
-  }
-  input {
-    border-radius: 10px;
-    font-size: 20px;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
-  }
-}
-
-#numTitle {
-  @include verticalCenter();
+.bottomPortion {
+  align-items: center;
+  display: flex;
+  font-family: $fontDesc;
+  font-size: 20px;
   justify-content: space-between;
-  #indivPay {
-    background: $backgroundColor;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: #fff;
-    font-family: "Futura", "serif";
-    font-size: 2vw;
-    margin-bottom: 10px;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    @extend button;
-    @media screen and (max-width: $mobileSize) {
-      font-size: 15px;
-    }
+  padding: 10px 0 10px 15px;
+  .inputDesc {
+    color: #d3d3d3;
   }
 }
 
-.owe {
-  font-family: "Futura", "serif";
-  font-size: 2vw;
-  text-align: center;
-  @media screen and (max-width: $mobileSize) {
+#numberOfPeopleContainer {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  input {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    font-family: $fontDesc;
     font-size: 20px;
+    margin: 0 10px;
+    text-align: center;
+    width: 50%;
   }
 }
 
@@ -73,29 +32,8 @@
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 20px 10%;
-  margin-bottom: 20px;
-  padding: 0 5%;
-  @media screen and (max-width: $mobileSize) {
-    padding: 0;
-  }
+  padding: 15px 5%;
   .percentage {
-    background: $backgroundColor;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: $fontColor;
-    font-family: $fontDesc;
-    font-size: 2vw;
-    text-align: center;
-    padding: 10px;
     @extend button;
-    @media screen and (max-width: $mobileSize) {
-      font-size: 20px;
-    }
   }
-}
-
-#totalBillPage {
-  height: 100%;
-  overflow: auto;
-  width: 100%;
 }

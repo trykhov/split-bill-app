@@ -5,8 +5,10 @@ import logo from "../logo.png";
 
 export default function TitlePage() {
   return (
-    <div id="homepage">
-      <h3 id="title">SplitBill</h3>
+    <section id="homepage">
+      <header>
+        <h1 id="title">SplitBill</h1>
+      </header>
       <img id="logo" src={logo} alt="logo" />
       <span id="titleDesc">
         The easiest way to split the bill with your friends
@@ -16,8 +18,8 @@ export default function TitlePage() {
         to="billInfo"
         style={{ textDecoration: "none" }}
       >
-        <span>Start</span>
+        Start
       </Link>
-    </div>
+    </section>
   );
 }

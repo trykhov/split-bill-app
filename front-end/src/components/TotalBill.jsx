@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import logo from "../logo.png";
 import "../css/totalBillPage/totalBillPage.css";
 import { addSubtotal, addTip, addPeople, addTotal } from "../actions";
 
@@ -55,6 +54,10 @@ class TotalBill extends React.Component {
       // eslint-disable-next-line react/prop-types, no-shadow
       const { addPeople } = this.props;
       addPeople(number + amount);
+    } else if (number === "" && amount > 0) {
+      this.setState({ number: number + amount });
+      // const { addPeople } = this.props;
+      addPeople(number + amount);
     }
   };
 
@@ -98,8 +101,8 @@ class TotalBill extends React.Component {
       this.setState({ total: sum.toFixed(2) }, () => {
         // eslint-disable-next-line react/prop-types, no-shadow
         const { addSubtotal, addTip, addTotal } = this.props;
-        addSubtotal(parseFloat(billAmount));
-        addTip(parseFloat(tipAmount));
+        addSubtotal(billAmount);
+        addTip(tipAmount);
         addTotal(sum.toFixed(2));
       });
     }
@@ -116,9 +119,9 @@ class TotalBill extends React.Component {
         this.setState({ tipAmount: diff.toFixed(2) }, () => {
           // eslint-disable-next-line react/prop-types, no-shadow
           const { addSubtotal, addTip, addTotal } = this.props;
-          addSubtotal(parseFloat(billAmount));
+          addSubtotal(billAmount);
           addTip(diff.toFixed(2));
-          addTotal(parseFloat(total));
+          addTotal(total);
         });
       } else {
         this.setState({ tipAmount: 0 });
@@ -153,17 +156,16 @@ class TotalBill extends React.Component {
   render() {
     const { billAmount, tipAmount, number, total } = this.state;
     return (
-      <div id="totalBillPage">
+      <section id="totalBillPage">
         <header className="appName">
           {/* this will be the container that holds the app logo and name at the top left corner */}
-          <img className="appLogo" src={logo} alt="logo" />
           <h1>SplitBill</h1>
         </header>
         <main className="mainUI">
           <form action="">
+            <label htmlFor="subtotal">Subtotal</label>
             <div className="formComponentContainers" id="subtotal">
-              <h2>Bill Amount</h2>
-              <div className="amount">
+              <div className="inputContainer">
                 <span>$</span>
                 <input
                   id="subtotal"
@@ -174,8 +176,8 @@ class TotalBill extends React.Component {
               </div>
               {this.callWarning(billAmount, "AMOUNT")}
             </div>
+            <label htmlFor="tip">Tip</label>
             <div className="formComponentContainers">
-              <h2>Tip Percentage</h2>
               <div className="percentageContainer">
                 <button
                   type="button"
@@ -216,26 +218,25 @@ class TotalBill extends React.Component {
                   Custom
                 </button>
               </div>
-              <div className="amount">
-                <span>$</span>
-                <input
-                  type="text"
-                  placeholder="0.00"
-                  onChange={this.inputTip}
-                  value={tipAmount}
-                />
+              <hr />
+              <div className="bottomPortion">
+                <span className="inputDesc">Tip Amount</span>
+                <div className="inputContainer">
+                  <span>$</span>
+                  <input
+                    id="tip"
+                    type="text"
+                    placeholder="0.00"
+                    onChange={this.inputTip}
+                    value={tipAmount}
+                  />
+                </div>
               </div>
               {this.callWarning(tipAmount, "AMOUNT")}
             </div>
+            <label htmlFor="numberOfPeople">Number of People</label>
             <div className="formComponentContainers">
-              <div id="numTitle">
-                <h2>Number of People</h2>
-                <Link to="/individualpayments" id="indivPay">
-                  Individual Payments
-                </Link>
-              </div>
-
-              <div className="numberOfPeople">
+              <div id="numberOfPeopleContainer">
                 <button
                   type="button"
                   className="plusSign"
@@ -247,7 +248,7 @@ class TotalBill extends React.Component {
                   className="numPeople"
                   type="text"
                   name=""
-                  id=""
+                  id="numberOfPeople"
                   placeholder="1"
                   onChange={this.customNumber}
                   value={number}
@@ -260,19 +261,20 @@ class TotalBill extends React.Component {
                   –
                 </button>
               </div>
-              {this.callWarning(number, "PEOPLE")}
-              <div className="owe">
+              <hr />
+              <div className="bottomPortion">
                 <span>
-                  Each person owes you: $
+                  Each Person Pays ${" "}
                   {number > 0 ? (total / number).toFixed(2) : 0}
                 </span>
               </div>
             </div>
+            <label htmlFor="totalBill">Total</label>
             <div className="formComponentContainers">
-              <h2>Total</h2>
-              <div className="amount">
+              <div className="inputContainer">
                 <span>$</span>
                 <input
+                  id="totalBill"
                   type="text"
                   placeholder="0.00"
                   onChange={this.inputTotal}
@@ -283,7 +285,7 @@ class TotalBill extends React.Component {
             </div>
           </form>
         </main>
-      </div>
+      </section>
     );
   }
 }

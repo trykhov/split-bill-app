@@ -1,46 +1,14 @@
-.appName {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 auto 10px;
-  overflow: auto;
-  width: 90%;
-}
-
-.appName .appLogo {
-  height: 10%;
-  margin: 10px 0;
-  width: 10%;
-}
-
-@media screen and (max-width: 490px) {
-  .appName .appLogo {
-    height: 50px;
-    margin: 10px 0;
-    width: 50px;
-  }
-}
-
-.appName h1 {
+button,
+.percentageContainer .percentage {
+  background: #26a6d8;
+  border-radius: 0;
   color: #fff;
-  font-family: "American Typewriter", "serif";
-  font-size: 3vw;
-  margin-left: 5px;
-}
-
-@media screen and (max-width: 490px) {
-  .appName h1 {
-    font-size: 20px;
-  }
+  font-family: "Futura", "serif";
+  padding: 10px;
+  font-size: 20px;
 }
 
 button:active,
-.numberOfPeople .plusSign:active,
-.numberOfPeople .minusSign:active,
-#numTitle #indivPay:active,
 .percentageContainer .percentage:active {
   background: -webkit-gradient(
     linear,
@@ -53,9 +21,6 @@ button:active,
 }
 
 button:hover,
-.numberOfPeople .plusSign:hover,
-.numberOfPeople .minusSign:hover,
-#numTitle #indivPay:hover,
 .percentageContainer .percentage:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -63,245 +28,142 @@ button:hover,
 }
 
 button:focus,
-.numberOfPeople .plusSign:focus,
-.numberOfPeople .minusSign:focus,
-#numTitle #indivPay:focus,
 .percentageContainer .percentage:focus {
   outline: 0;
 }
 
-main {
-  margin: 0 auto;
-  width: 90%;
+section {
+  width: 100%;
   overflow: auto;
-}
-
-main h2 {
-  color: #000000;
-  font-family: "Futura", "serif";
-  font-size: 3vw;
-  margin: 10px 0 20px;
-}
-
-@media screen and (max-width: 490px) {
-  main h2 {
-    font-size: 25px;
-  }
-}
-
-.doneButton {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#29b2e5),
-    to(#1c7ca7)
-  );
-  background: linear-gradient(#29b2e5, #1c7ca7);
-  border-radius: 16px;
-  height: 60px;
-  margin: 40px auto;
-  text-decoration: none;
-  width: 150px;
-}
-
-.doneButton span {
-  color: #fff;
-  font-family: "Futura", "serif";
-}
-
-form {
-  height: 100%;
-}
-
-.formComponentContainers {
-  background: #fff;
-  border-radius: 25px;
-  margin: 15px auto;
-  overflow: auto;
-  padding: 15px;
   position: relative;
-  width: 60%;
 }
 
-@media screen and (max-width: 490px) {
-  .formComponentContainers {
-    width: 300px;
-  }
-}
-
-.formComponentContainers .amount {
-  float: right;
-}
-
-.formComponentContainers .amount input {
-  border-radius: 15px;
-  padding: 15px;
-  font-size: 20px;
-}
-
-.formComponentContainers .amount span {
-  font-family: "Futura", "serif";
-  font-size: 20px;
-  margin-right: 5px;
-}
-
-.formComponentContainers .warning {
-  clear: right;
-  color: red;
-  display: block;
-  font-family: "Futura", "serif";
-  font-size: 2vw;
-  padding: 20px 0 0;
-  text-align: center;
-}
-
-@media screen and (max-width: 490px) {
-  .formComponentContainers .warning {
-    font-size: 20px;
-  }
-}
-
-input:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-
-input:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-input:focus::-ms-input-placeholder {
-  color: transparent;
-}
-
-input:focus::placeholder {
-  color: transparent;
-}
-
-.numberOfPeople {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto auto auto;
-  grid-template-columns: auto auto auto;
-  grid-gap: 20px;
-  justify-items: center;
-  margin-bottom: 20px;
-  padding: 0 5%;
-  text-align: center;
-}
-
-@media screen and (max-width: 490px) {
-  .numberOfPeople {
-    padding: 0;
-  }
-}
-
-.numberOfPeople .plusSign,
-.numberOfPeople .minusSign {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#29b2e5),
-    to(#1c7ca7)
-  );
-  background: linear-gradient(#29b2e5, #1c7ca7);
-  border-radius: 10px;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+section header {
   color: #fff;
   font-family: "Futura", "serif";
-  font-size: 2.25vw;
-  padding: 5% 10%;
-}
-
-@media screen and (max-width: 900px) {
-  .numberOfPeople .plusSign,
-  .numberOfPeople .minusSign {
-    font-size: 15px;
-    padding: 20px;
-  }
-}
-
-@media screen and (max-width: 490px) {
-  .numberOfPeople .plusSign,
-  .numberOfPeople .minusSign {
-    font-size: 20px;
-    padding: 10px;
-  }
-}
-
-.numberOfPeople input {
-  border-radius: 10px;
-  font-size: 20px;
-  padding: 10px 0;
+  margin: 0 auto;
   text-align: center;
+  width: 50%;
+}
+
+section main {
+  margin: 0 auto;
+  padding: 0;
+  width: 390px;
+}
+
+@media screen and (max-width: 390px) {
+  section main {
+    font-size: 20px;
+    width: 80%;
+  }
+}
+
+section main form {
+  margin: 0 auto;
   width: 100%;
 }
 
-#numTitle {
+section main form label {
+  color: #fff;
+  font-family: "Futura", "serif";
+}
+
+section main .formComponentContainers {
+  background: #fff;
+  border-radius: 0;
+  margin: 10px 0;
+  overflow: auto;
+  width: 100%;
+}
+
+section main .formComponentContainers .inputContainer {
+  float: right;
+}
+
+section main .formComponentContainers .inputContainer span {
+  font-family: "Futura", "serif";
+  font-size: 20px;
+}
+
+section main .formComponentContainers .inputContainer input {
+  border: 0;
+  border-radius: 0;
+  font-size: 20px;
+  padding: 10px 0 10px 5px;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+section main .formComponentContainers .inputContainer input:focus::placeholder {
+  color: transparent;
+}
+
+section main .formComponentContainers hr {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.bottomPortion {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  font-family: "Futura", "serif";
+  font-size: 20px;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  padding: 10px 0 10px 15px;
 }
 
-#numTitle #indivPay {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#29b2e5),
-    to(#1c7ca7)
-  );
-  background: linear-gradient(#29b2e5, #1c7ca7);
-  border-radius: 15px;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  color: #fff;
+.bottomPortion .inputDesc {
+  color: #d3d3d3;
+}
+
+#numberOfPeopleContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+#numberOfPeopleContainer input {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
   font-family: "Futura", "serif";
-  font-size: 2vw;
-  margin-bottom: 10px;
-  padding: 10px;
+  font-size: 20px;
+  margin: 0 10px;
   text-align: center;
-  text-decoration: none;
-}
-
-@media screen and (max-width: 490px) {
-  #numTitle #indivPay {
-    font-size: 15px;
-  }
-}
-
-.owe {
-  font-family: "Futura", "serif";
-  font-size: 2vw;
-  text-align: center;
-}
-
-@media screen and (max-width: 490px) {
-  .owe {
-    font-size: 20px;
-  }
+  width: 50%;
 }
 
 .percentageContainer {
@@ -310,45 +172,6 @@ input:focus::placeholder {
   -ms-grid-columns: auto auto auto;
   grid-template-columns: auto auto auto;
   grid-gap: 20px 10%;
-  margin-bottom: 20px;
-  padding: 0 5%;
-}
-
-@media screen and (max-width: 490px) {
-  .percentageContainer {
-    padding: 0;
-  }
-}
-
-.percentageContainer .percentage {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#29b2e5),
-    to(#1c7ca7)
-  );
-  background: linear-gradient(#29b2e5, #1c7ca7);
-  border-radius: 10px;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  color: #fff;
-  font-family: "Futura", "serif";
-  font-size: 2vw;
-  text-align: center;
-  padding: 10px;
-}
-
-@media screen and (max-width: 490px) {
-  .percentageContainer .percentage {
-    font-size: 20px;
-  }
-}
-
-#totalBillPage {
-  height: 100%;
-  overflow: auto;
-  width: 100%;
+  padding: 15px 5%;
 }
 /*# sourceMappingURL=totalBillPage.css.map */

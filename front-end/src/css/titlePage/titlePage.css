@@ -1,174 +1,150 @@
-.appName {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 auto 10px;
-  overflow: auto;
-  width: 90%;
-}
-
-.appName .appLogo {
-  height: 10%;
-  margin: 10px 0;
-  width: 10%;
-}
-
-@media screen and (max-width: 490px) {
-  .appName .appLogo {
-    height: 50px;
-    margin: 10px 0;
-    width: 50px;
-  }
-}
-
-.appName h1 {
+button {
+  background: #26a6d8;
+  border-radius: 0;
   color: #fff;
-  font-family: "American Typewriter", "serif";
-  font-size: 3vw;
-  margin-left: 5px;
-}
-
-@media screen and (max-width: 490px) {
-  .appName h1 {
-    font-size: 20px;
-  }
-}
-
-main {
-  margin: 0 auto;
-  width: 90%;
-  overflow: auto;
-}
-
-main h2 {
-  color: #000000;
   font-family: "Futura", "serif";
-  font-size: 3vw;
-  margin: 10px 0 20px;
+  padding: 10px;
+  font-size: 20px;
 }
 
-@media screen and (max-width: 490px) {
-  main h2 {
-    font-size: 25px;
-  }
-}
-
-.doneButton {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+button:active {
   background: -webkit-gradient(
     linear,
     left top,
     left bottom,
-    from(#29b2e5),
-    to(#1c7ca7)
+    from(#147497),
+    to(#08364b)
   );
-  background: linear-gradient(#29b2e5, #1c7ca7);
-  border-radius: 16px;
-  height: 60px;
-  margin: 40px auto;
-  text-decoration: none;
-  width: 150px;
+  background: linear-gradient(#147497, #08364b);
 }
 
-.doneButton span {
-  color: #fff;
-  font-family: "Futura", "serif";
+button:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
 }
 
-form {
-  height: 100%;
+button:focus {
+  outline: 0;
 }
 
-.formComponentContainers {
-  background: #fff;
-  border-radius: 25px;
-  margin: 15px auto;
+section {
+  width: 100%;
   overflow: auto;
-  padding: 15px;
   position: relative;
-  width: 60%;
 }
 
-@media screen and (max-width: 490px) {
-  .formComponentContainers {
-    width: 300px;
-  }
-}
-
-.formComponentContainers .amount {
-  float: right;
-}
-
-.formComponentContainers .amount input {
-  border-radius: 15px;
-  padding: 15px;
-  font-size: 20px;
-}
-
-.formComponentContainers .amount span {
-  font-family: "Futura", "serif";
-  font-size: 20px;
-  margin-right: 5px;
-}
-
-.formComponentContainers .warning {
-  clear: right;
-  color: red;
-  display: block;
-  font-family: "Futura", "serif";
-  font-size: 2vw;
-  padding: 20px 0 0;
-  text-align: center;
-}
-
-@media screen and (max-width: 490px) {
-  .formComponentContainers .warning {
-    font-size: 20px;
-  }
-}
-
-input:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-
-input:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
-input:focus::-ms-input-placeholder {
-  color: transparent;
-}
-
-input:focus::placeholder {
-  color: transparent;
-}
-
-#homepage {
+section header {
   color: #fff;
-  font-family: "American Typewriter", "serif";
-  font-size: 20px;
-  margin: 10% auto;
-  letter-spacing: 1px;
-  overflow: auto;
+  font-family: "Futura", "serif";
+  margin: 0 auto;
   text-align: center;
   width: 80%;
 }
 
-@media screen and (max-width: 490px) {
-  #homepage {
-    margin: 40% auto;
+section main {
+  margin: 0 auto;
+  padding: 0;
+  width: 390px;
+}
+
+@media screen and (max-width: 390px) {
+  section main {
+    font-size: 20px;
+    width: 80%;
   }
+}
+
+section main form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+section main form label {
+  color: #fff;
+  font-family: "Futura", "serif";
+}
+
+section main .formComponentContainers {
+  background: #fff;
+  border-radius: 0;
+  margin: 10px 0;
+  overflow: auto;
+  width: 100%;
+}
+
+section main .formComponentContainers .inputContainer {
+  float: right;
+}
+
+section main .formComponentContainers .inputContainer span {
+  font-family: "Futura", "serif";
+  font-size: 20px;
+}
+
+section main .formComponentContainers .inputContainer input {
+  border: 0;
+  border-radius: 0;
+  font-size: 20px;
+  padding: 10px 0 10px 5px;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+section main .formComponentContainers .inputContainer input:focus::placeholder {
+  color: transparent;
+}
+
+section main .formComponentContainers hr {
+  margin: 0 auto;
+  width: 90%;
+}
+
+#homepage {
+  margin: 10% auto;
+  text-align: center;
+  width: 80%;
+}
+
+@media screen and (max-width: 390px) {
+  #homepage {
+    margin: 50% auto;
+  }
+}
+
+#homepage .doneButton {
+  background: #26a6d8;
+  border-radius: 15px;
+  color: #fff;
+  display: block;
+  font-family: "Futura", "serif";
+  font-size: 20px;
+  margin: 20px auto;
+  padding: 10px;
+  text-decoration: none;
+  width: 60px;
 }
 
 #logo {
@@ -177,13 +153,14 @@ input:focus::placeholder {
   margin: 5% auto;
 }
 
-@media (max-width: 490px) {
+@media (max-width: 390px) {
   #logo {
-    margin: 20% auto;
+    margin: 10% auto;
   }
 }
 
 #titleDesc {
+  color: #fff;
   font-family: "Futura", "serif";
 }
 /*# sourceMappingURL=titlePage.css.map */
