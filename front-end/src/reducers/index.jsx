@@ -18,7 +18,7 @@ const tip = (withTip = 0, action) => {
   }
 };
 
-const addPeople = (num = 0, action) => {
+const addPeople = (num = 1, action) => {
   switch (action.type) {
     case "NUMBER_OF_PEOPLE":
       return action.payload;

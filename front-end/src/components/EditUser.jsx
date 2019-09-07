@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { connect } from "react-redux";
 import logo from "../logo.png";
@@ -10,7 +11,7 @@ class EditUser extends React.Component {
   }
 
   render() {
-    // const { subTotal, tip, wholeBill } = this.props;
+    const { subTotal, tip, wholeBill } = this.props;
     return (
       <section id="editUserPage">
         <header className="appName">
@@ -25,15 +26,15 @@ class EditUser extends React.Component {
               <tbody>
                 <tr>
                   <td>Subtotal</td>
-                  {/* <td>$ {subTotal}</td> */}
+                  <td>$ {subTotal}</td>
                 </tr>
                 <tr>
                   <td>Tip</td>
-                  {/* <td>$ {tip}</td> */}
+                  <td>$ {tip}</td>
                 </tr>
                 <tr>
                   <td>Total</td>
-                  {/* <td>$ {wholeBill}</td> */}
+                  <td>$ {wholeBill}</td>
                 </tr>
               </tbody>
             </table>

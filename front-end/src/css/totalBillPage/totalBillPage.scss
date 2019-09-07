@@ -25,6 +25,9 @@
     margin: 0 10px;
     text-align: center;
     width: 50%;
+    &:focus::placeholder {
+      color: transparent;
+    }
   }
 }
 

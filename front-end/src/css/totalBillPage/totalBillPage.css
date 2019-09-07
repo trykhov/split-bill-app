@@ -43,7 +43,7 @@ section header {
   font-family: "Futura", "serif";
   margin: 0 auto;
   text-align: center;
-  width: 50%;
+  width: 80%;
 }
 
 section main {
@@ -164,6 +164,22 @@ section main .formComponentContainers hr {
   margin: 0 10px;
   text-align: center;
   width: 50%;
+}
+
+#numberOfPeopleContainer input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+#numberOfPeopleContainer input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+#numberOfPeopleContainer input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+#numberOfPeopleContainer input:focus::placeholder {
+  color: transparent;
 }
 
 .percentageContainer {
