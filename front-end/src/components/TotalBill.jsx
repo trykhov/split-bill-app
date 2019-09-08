@@ -12,7 +12,9 @@ class TotalBill extends React.Component {
   constructor() {
     super();
     this.state = {
-      howManyPeople: 1
+      tipAmount: "0.00",
+      howManyPeople: 1,
+      totalAmount: "0.00"
     };
   }
 
@@ -35,7 +37,11 @@ class TotalBill extends React.Component {
   };
 
   // ************************************************** tipping **************************************************
-  inputTip = () => {
+  inputTip = inputValue => {
+    this.setState({ tipAmount: inputValue.target.value });
+  };
+
+  checkInputTip = () => {
     const confirmSubtotal = this.obeysRegExp(
       document.getElementById("tip").value
     );
@@ -47,6 +53,7 @@ class TotalBill extends React.Component {
       tip.value = parseFloat(0).toFixed(2);
       this.props.addTip(0);
     }
+    this.setState({ tipAmount: tip.value });
     setTimeout(() => this.calculateTotalCallback(), 250);
   };
 
@@ -55,6 +62,7 @@ class TotalBill extends React.Component {
     const tip = document.getElementById("tip");
     tip.value = Number(tipAmount).toFixed(2);
     this.props.addTip(Number(tipAmount));
+    this.setState({ tipAmount });
     setTimeout(() => this.calculateTotalCallback(), 250);
   };
 
@@ -70,8 +78,8 @@ class TotalBill extends React.Component {
     }
   };
 
-  inputNumberOfPeople = amount => {
-    this.setState({ howManyPeople: amount.target.value });
+  inputNumberOfPeople = inputValue => {
+    this.setState({ howManyPeople: inputValue.target.value });
   };
 
   checkNumberOfPeople = () => {
@@ -91,7 +99,12 @@ class TotalBill extends React.Component {
   };
 
   // ********************************************** total bill **********************************************
-  inputTotal = () => {
+
+  inputTotal = inputValue => {
+    this.setState({ totalAmount: inputValue.target.value });
+  };
+
+  checkInputTotal = () => {
     const confirmTotal = this.obeysRegExp(
       document.getElementById("totalBill").value
     );
@@ -103,6 +116,7 @@ class TotalBill extends React.Component {
       total.value = parseFloat(0).toFixed(2);
       this.props.addTotal(0);
     }
+    this.setState({ totalAmount: total.value });
     setTimeout(() => this.calculateTipCallback(), 250);
   };
   // ********************************************** Call Warning ********************************************
@@ -117,6 +131,7 @@ class TotalBill extends React.Component {
     const { subTotal, tip } = this.props;
     const total = document.getElementById("totalBill");
     total.value = (subTotal + tip).toFixed(2);
+    this.setState({ totalAmount: total.value });
     this.props.addTotal(Number(total.value));
   };
 
@@ -126,6 +141,7 @@ class TotalBill extends React.Component {
     diff.value = (wholeBill - subTotal).toFixed(2);
     if (Number(diff.value) >= 0) {
       this.props.addTip(Number(diff.value));
+      this.setState({ tipAmount: Number(diff.value) });
     }
   };
 
@@ -151,11 +167,28 @@ class TotalBill extends React.Component {
     return "";
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    const confirmSubtotal = this.obeysRegExp(
+      document.getElementById("subtotal").value
+    );
+    const confirmTip = this.obeysRegExp(document.getElementById("tip").value);
+    const confirmTotal = this.obeysRegExp(
+      document.getElementById("totalBill").value
+    );
+    if (confirmSubtotal && confirmTip && confirmTotal) {
+      console.log("All done");
+    } else {
+      console.log("Something is wrong");
+    }
+  };
+
   // ********************************************************************************************************
 
   render() {
-    const { howManyPeople } = this.state;
+    const { howManyPeople, tipAmount, totalAmount } = this.state;
     const { numPpl, wholeBill } = this.props;
+
     return (
       <section id="totalBillPage">
         <header className="appName">
@@ -163,7 +196,7 @@ class TotalBill extends React.Component {
           <h1>SplitBill</h1>
         </header>
         <main className="mainUI">
-          <form action="">
+          <form action="" onSubmit={this.handleSubmit}>
             <label htmlFor="subtotal">Subtotal</label>
             <div className="formComponentContainers">
               <div className="inputContainer">
@@ -228,7 +261,9 @@ class TotalBill extends React.Component {
                     id="tip"
                     type="text"
                     placeholder="0.00"
-                    onBlur={this.inputTip}
+                    onBlur={this.checkInputTip}
+                    onChange={this.inputTip}
+                    value={tipAmount}
                   />
                 </div>
               </div>
@@ -274,10 +309,13 @@ class TotalBill extends React.Component {
                   id="totalBill"
                   type="text"
                   placeholder="0.00"
-                  onBlur={this.inputTotal}
+                  onBlur={this.checkInputTotal}
+                  onChange={this.inputTotal}
+                  value={totalAmount}
                 />
               </div>
             </div>
+            <button type="submit">Modify Bill</button>
           </form>
         </main>
       </section>

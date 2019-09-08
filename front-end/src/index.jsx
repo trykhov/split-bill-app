@@ -17,7 +17,7 @@ ReactDOM.render(
       <Route path="/" component={TitlePage} exact />
       <Route path="/billInfo" component={TotalBill} />
       <Route path="/numberOfPeople" component={NumPeople} />
-      <Route path="/individualpayments" component={EditUser} />
+      <Route path="/modifyBill" component={EditUser} />
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
