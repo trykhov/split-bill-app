@@ -1,3 +1,12 @@
+button {
+  background: #26a6d8;
+  border-radius: 0;
+  color: #fff;
+  font-family: "Futura", "serif";
+  padding: 10px;
+  font-size: 20px;
+}
+
 button:active {
   background: -webkit-gradient(
     linear,
@@ -19,12 +28,8 @@ button:focus {
   outline: 0;
 }
 
-input {
-  border-radius: 0;
-}
-
 section {
-  width: 390px;
+  width: 100%;
   overflow: auto;
   position: relative;
 }
@@ -34,36 +39,88 @@ section header {
   font-family: "Futura", "serif";
   margin: 0 auto;
   text-align: center;
-  width: 50%;
+  width: 80%;
 }
 
 section main {
   margin: 0 auto;
-  width: 100%;
-}
-
-section main .formComponentContainers {
-  border-radius: 0;
   padding: 0;
-  width: 100%;
-}
-
-section main h2 {
-  color: #000000;
-  font-family: "Futura", "serif";
-  font-size: 3vw;
-  margin: 10px 0 20px;
+  width: 390px;
 }
 
 @media screen and (max-width: 390px) {
-  section main h2 {
-    font-size: 25px;
+  section main {
+    font-size: 20px;
+    width: 80%;
   }
 }
 
-section main label {
+section main form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+section main form label {
   color: #fff;
   font-family: "Futura", "serif";
+}
+
+section main .formComponentContainers {
+  background: #fff;
+  border-radius: 0;
+  margin: 10px 0;
+  overflow: auto;
+  width: 100%;
+}
+
+section main .formComponentContainers .inputContainer {
+  float: right;
+}
+
+section main .formComponentContainers .inputContainer span {
+  font-family: "Futura", "serif";
+  font-size: 20px;
+}
+
+section main .formComponentContainers .inputContainer input {
+  border: 0;
+  border-radius: 0;
+  font-size: 20px;
+  padding: 10px 0 10px 5px;
+  width: 20%;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+section
+  main
+  .formComponentContainers
+  .inputContainer
+  input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+section main .formComponentContainers .inputContainer input:focus::placeholder {
+  color: transparent;
+}
+
+section main .formComponentContainers hr {
+  margin: 0 auto;
+  width: 90%;
 }
 
 #billSummary {
