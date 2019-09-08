@@ -315,7 +315,9 @@ class TotalBill extends React.Component {
                 />
               </div>
             </div>
-            <button type="submit">Modify Bill</button>
+            <button id="modifyButton" type="submit">
+              Modify Bill
+            </button>
           </form>
         </main>
       </section>

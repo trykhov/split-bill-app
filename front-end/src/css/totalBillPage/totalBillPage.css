@@ -146,6 +146,10 @@ section main .formComponentContainers hr {
   color: #d3d3d3;
 }
 
+#modifyButton {
+  width: 100%;
+}
+
 #numberOfPeopleContainer {
   display: -webkit-box;
   display: -ms-flexbox;
