@@ -9,18 +9,24 @@ import "../css/totalBillPage/totalBillPage.css";
 import { addSubtotal, addTip, addPeople, addTotal } from "../actions";
 
 class TotalBill extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { subTotal, tip, wholeBill, numPpl } = this.props;
     this.state = {
-      tipAmount: "0.00",
-      howManyPeople: 1,
-      totalAmount: "0.00"
+      subtotal: subTotal === "" ? "" : subTotal.toFixed(2),
+      tipAmount: tip.toFixed(2),
+      howManyPeople: numPpl,
+      totalAmount: wholeBill.toFixed(2)
     };
   }
 
   // ************************************************** subtotal ************************************************
 
-  inputSubtotal = () => {
+  inputSubtotal = inputValue => {
+    this.setState({ subtotal: inputValue.target.value });
+  };
+
+  checkInputSubtotal = () => {
     const confirmSubtotal = this.obeysRegExp(
       document.getElementById("subtotal").value
     );
@@ -168,7 +174,7 @@ class TotalBill extends React.Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
+    event.preventDefault(); // prevents page from refreshing
     const confirmSubtotal = this.obeysRegExp(
       document.getElementById("subtotal").value
     );
@@ -178,6 +184,7 @@ class TotalBill extends React.Component {
     );
     if (confirmSubtotal && confirmTip && confirmTotal) {
       console.log("All done");
+      this.props.history.push("/modifyBill");
     } else {
       console.log("Something is wrong");
     }
@@ -186,7 +193,7 @@ class TotalBill extends React.Component {
   // ********************************************************************************************************
 
   render() {
-    const { howManyPeople, tipAmount, totalAmount } = this.state;
+    const { howManyPeople, tipAmount, totalAmount, subtotal } = this.state;
     const { numPpl, wholeBill } = this.props;
 
     return (
@@ -205,7 +212,9 @@ class TotalBill extends React.Component {
                   id="subtotal"
                   type="text"
                   placeholder="0.00"
-                  onBlur={this.inputSubtotal}
+                  onBlur={this.checkInputSubtotal}
+                  onChange={this.inputSubtotal}
+                  value={subtotal}
                 />
               </div>
               {/* {this.callWarning(billAmount, "AMOUNT")} */}
