@@ -87,7 +87,8 @@ section main .formComponentContainers .inputContainer input {
   border-radius: 0;
   font-size: 20px;
   padding: 10px 0 10px 5px;
-  width: 50%;
+  text-align: right;
+  width: 90%;
 }
 
 section

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const billAmount = (subTotal = "", action) => {
+const billAmount = (subTotal = 0, action) => {
   switch (action.type) {
     case "SUBTOTAL":
       return action.payload;

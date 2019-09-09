@@ -13,7 +13,7 @@ class TotalBill extends React.Component {
     super(props);
     const { subTotal, tip, wholeBill, numPpl } = this.props;
     this.state = {
-      subtotal: subTotal === "" ? "" : subTotal.toFixed(2),
+      subtotal: subTotal === 0 ? "" : subTotal.toFixed(2),
       tipAmount: tip.toFixed(2),
       howManyPeople: numPpl,
       totalAmount: wholeBill.toFixed(2)
@@ -34,9 +34,11 @@ class TotalBill extends React.Component {
     if (confirmSubtotal || Number(subtotal.value)) {
       subtotal.value = parseFloat(subtotal.value).toFixed(2);
       this.props.addSubtotal(Number(subtotal.value));
+      this.setState({ subtotal: subtotal.value });
     } else {
       subtotal.value = parseFloat(0).toFixed(2);
       this.props.addSubtotal(0);
+      this.setState({ subtotal: "" });
       console.log("error");
     }
     setTimeout(() => this.calculateTotalCallback(), 250); // update the state first before running
@@ -137,7 +139,7 @@ class TotalBill extends React.Component {
     const { subTotal, tip } = this.props;
     const total = document.getElementById("totalBill");
     total.value = (subTotal + tip).toFixed(2);
-    this.setState({ totalAmount: total.value });
+    this.setState({ totalAmount: total.value }); // order matters
     this.props.addTotal(Number(total.value));
   };
 
@@ -146,8 +148,8 @@ class TotalBill extends React.Component {
     const diff = document.getElementById("tip");
     diff.value = (wholeBill - subTotal).toFixed(2);
     if (Number(diff.value) >= 0) {
+      this.setState({ tipAmount: diff.value });
       this.props.addTip(Number(diff.value));
-      this.setState({ tipAmount: Number(diff.value) });
     }
   };
 
@@ -211,7 +213,7 @@ class TotalBill extends React.Component {
                 <input
                   id="subtotal"
                   type="text"
-                  placeholder="0.00"
+                  placeholder="$0.00"
                   onBlur={this.checkInputSubtotal}
                   onChange={this.inputSubtotal}
                   value={subtotal}
@@ -276,7 +278,7 @@ class TotalBill extends React.Component {
                   />
                 </div>
               </div>
-              {/* {this.callWarning(tipAmount, "AMOUNT")} */}
+              {this.callWarning(tipAmount, "AMOUNT")}
             </div>
             <label htmlFor="numberOfPeople">Number of People</label>
             <div className="formComponentContainers">
