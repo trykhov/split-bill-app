@@ -1,7 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React from "react";
 import { connect } from "react-redux";
-import logo from "../logo.png";
 import "../css/editUser/editUser.css";
 
 class EditUser extends React.Component {
@@ -14,31 +14,57 @@ class EditUser extends React.Component {
     const { subTotal, tip, wholeBill } = this.props;
     return (
       <section id="editUserPage">
-        <header className="appName">
-          <img className="appLogo" src={logo} alt="logo" />
-          <h1>SplitBill</h1>
-        </header>
         <main className="mainUI">
-          <div id="billSummary" className="formComponentContainers">
-            <h2>Total</h2>
-            <hr />
-            <table>
-              <tbody>
-                <tr>
-                  <td>Subtotal</td>
-                  <td>$ {subTotal}</td>
-                </tr>
-                <tr>
-                  <td>Tip</td>
-                  <td>$ {tip}</td>
-                </tr>
-                <tr>
-                  <td>Total</td>
-                  <td>$ {wholeBill}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <button
+            id="backButton"
+            type="button"
+            onClick={() => this.props.history.push("/billInfo")}
+          >
+            <i
+              className="fas fa-chevron-left fa-2x"
+              style={{ color: "#fff" }}
+            />
+            <span>Back</span>
+          </button>
+          <form action="">
+            <label htmlFor="numberOfPeople">Total</label>
+            <div id="billSummary" className="formComponentContainers">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Subtotal:</td>
+                    <td>
+                      <input
+                        type="text"
+                        readOnly
+                        value={`$${subTotal.toFixed(2)}`}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tip:</td>
+                    <td>
+                      <input
+                        type="text"
+                        readOnly
+                        value={`$${tip.toFixed(2)}`}
+                      />
+                    </td>
+                  </tr>
+                  <tr style={{ borderTop: "1px solid #000000" }}>
+                    <td>Total:</td>
+                    <td>
+                      <input
+                        type="text"
+                        readOnly
+                        value={`$${wholeBill.toFixed(2)}`}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
         </main>
       </section>
     );

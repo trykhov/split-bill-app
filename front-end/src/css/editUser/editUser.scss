@@ -1,20 +1,58 @@
 @import "../global/global";
 
+#backButton {
+  align-items: center;
+  background: none;
+  border: none;
+  display: flex;
+  margin: 20px 0;
+  i {
+    margin-right: 10px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 #billSummary {
-  background: #fff;
-  border-radius: 15px;
-  color: #000000;
-  font-family: "Futura", "serif";
-  overflow: auto;
+  font-family: $fontDesc;
+  font-size: 20px;
+  width: 100%;
 }
 
 #editUserPage {
   height: 100%;
   overflow: auto;
-  width: 100%;
+  span {
+    color: #fff;
+    font-family: "Futura", "serif";
+    font-size: 5vw;
+    @media screen and (max-width: $mobileSize) {
+      font-size: 30px;
+    }
+  }
 }
 
 table {
-  // margin: 0 auto;
-  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 90%;
+  input {
+    border: 0;
+    border-radius: 0;
+    font-family: "Futura", "serif";
+    font-size: 20px;
+    padding: 10px 0 10px 5px;
+    text-align: right;
+    width: 90%;
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+  td {
+    padding-left: 15px;
+  }
+  span {
+    text-align: right;
+  }
 }

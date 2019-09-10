@@ -87,6 +87,8 @@ section main .formComponentContainers .inputContainer input {
   border-radius: 0;
   font-size: 20px;
   padding: 10px 0 10px 5px;
+  text-align: right;
+  width: 90%;
 }
 
 section
@@ -122,21 +124,86 @@ section main .formComponentContainers hr {
   width: 90%;
 }
 
+#backButton {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: none;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0;
+}
+
+#backButton i {
+  margin-right: 10px;
+}
+
+#backButton:hover {
+  cursor: pointer;
+}
+
 #billSummary {
-  background: #fff;
-  border-radius: 15px;
-  color: #000000;
   font-family: "Futura", "serif";
-  overflow: auto;
+  font-size: 20px;
+  width: 100%;
 }
 
 #editUserPage {
   height: 100%;
   overflow: auto;
-  width: 100%;
+}
+
+#editUserPage span {
+  color: #fff;
+  font-family: "Futura", "serif";
+  font-size: 5vw;
+}
+
+@media screen and (max-width: 390px) {
+  #editUserPage span {
+    font-size: 30px;
+  }
 }
 
 table {
-  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 90%;
+}
+
+table input {
+  border: 0;
+  border-radius: 0;
+  font-family: "Futura", "serif";
+  font-size: 20px;
+  padding: 10px 0 10px 5px;
+  text-align: right;
+  width: 90%;
+}
+
+table input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+table input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+table input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+table input:focus::placeholder {
+  color: transparent;
+}
+
+table td {
+  padding-left: 15px;
+}
+
+table span {
+  text-align: right;
 }
 /*# sourceMappingURL=editUser.css.map */

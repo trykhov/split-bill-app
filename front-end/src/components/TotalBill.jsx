@@ -213,7 +213,7 @@ class TotalBill extends React.Component {
                 <input
                   id="subtotal"
                   type="text"
-                  placeholder="$0.00"
+                  placeholder="0.00"
                   onBlur={this.checkInputSubtotal}
                   onChange={this.inputSubtotal}
                   value={subtotal}
