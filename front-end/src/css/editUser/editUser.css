@@ -209,25 +209,25 @@ section main .formComponentContainers .minusSign {
   color: transparent;
 }
 
+.peoplePaying {
+  margin: 20px 0;
+}
+
+.peoplePaying hr {
+  margin: 20px 0;
+}
+
 .personContainer {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  color: #fff;
   font-family: "Futura", "serif";
   font-size: 2.25vw;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
-  margin: 2% 2%;
   width: 200px;
 }
 
 .personContainer input[type="checkbox"] {
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 550px) {

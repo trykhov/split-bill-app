@@ -52,7 +52,7 @@ class EditUser extends React.Component {
     return dummyArr.map((list, index) => {
       return (
         // eslint-disable-next-line react/no-array-index-key
-        <div id="peoplePaying" key={index} className="formComponentContainers">
+        <div className="peoplePaying" key={index}>
           <div className="personContainer">
             <input
               type="checkbox"
@@ -62,29 +62,32 @@ class EditUser extends React.Component {
             />
             Person {index + 1}
           </div>
-          <div className="paymentContainer">
-            <button
-              type="button"
-              className="plusSign"
-              onClick={() => this.addSubtractDollar(index + 1, 1)}
-            >
-              +
-            </button>
-            <input
-              type="text"
-              readOnly
-              className="paymentValue"
-              id={`person${index + 1}`}
-              defaultValue={(wholeBill / numberOfPeople).toFixed(2)}
-            />
-            <button
-              type="button"
-              className="minusSign"
-              onClick={() => this.addSubtractDollar(index + 1, -1)}
-            >
-              –
-            </button>
+          <div className="formComponentContainers">
+            <div className="paymentContainer">
+              <button
+                type="button"
+                className="plusSign"
+                onClick={() => this.addSubtractDollar(index + 1, 1)}
+              >
+                +
+              </button>
+              <input
+                type="text"
+                readOnly
+                className="paymentValue"
+                id={`person${index + 1}`}
+                defaultValue={(wholeBill / numberOfPeople).toFixed(2)}
+              />
+              <button
+                type="button"
+                className="minusSign"
+                onClick={() => this.addSubtractDollar(index + 1, -1)}
+              >
+                –
+              </button>
+            </div>
           </div>
+          <hr />
         </div>
       );
     });

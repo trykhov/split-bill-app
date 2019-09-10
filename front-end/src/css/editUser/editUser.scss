@@ -52,16 +52,21 @@
   }
 }
 
+.peoplePaying {
+  margin: 20px 0;
+  hr {
+    margin: 20px 0;
+  }
+}
+
 .personContainer {
-  align-items: center;
-  display: flex;
+  color: #fff;
   font-family: "Futura", "serif";
   font-size: 2.25vw;
-  justify-content: space-evenly;
-  margin: 2% 2%;
   width: 200px;
   input[type="checkbox"] {
     transform: scale(1.5);
+    margin-right: 20px;
   }
   @media screen and (max-width: $mobileSize) {
     font-size: 20px;
