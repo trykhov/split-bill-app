@@ -49,10 +49,10 @@ section header {
 section main {
   margin: 0 auto;
   padding: 0;
-  width: 390px;
+  width: 550px;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 550px) {
   section main {
     font-size: 20px;
     width: 80%;

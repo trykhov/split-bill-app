@@ -45,10 +45,10 @@ section header {
 section main {
   margin: 0 auto;
   padding: 0;
-  width: 390px;
+  width: 550px;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 550px) {
   section main {
     font-size: 20px;
     width: 80%;
@@ -124,6 +124,11 @@ section main .formComponentContainers hr {
   width: 90%;
 }
 
+section main .formComponentContainers .plusSign,
+section main .formComponentContainers .minusSign {
+  width: 25%;
+}
+
 #backButton {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -161,7 +166,7 @@ section main .formComponentContainers hr {
   font-size: 5vw;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 550px) {
   #editUserPage span {
     font-size: 30px;
   }
@@ -205,14 +210,30 @@ section main .formComponentContainers hr {
 }
 
 .personContainer {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   font-family: "Futura", "serif";
-  font-size: 2vw;
-  margin: 0 10%;
+  font-size: 2.25vw;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  margin: 2% 2%;
+  width: 200px;
 }
 
-@media screen and (max-width: 390px) {
+.personContainer input[type="checkbox"] {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+@media screen and (max-width: 550px) {
   .personContainer {
     font-size: 20px;
+    width: 150px;
   }
 }
 
