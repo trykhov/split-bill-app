@@ -10,8 +10,37 @@ class EditUser extends React.Component {
     this.state = {};
   }
 
+  generatePersonList = numberOfPeople => {
+    const dummyArr = new Array(numberOfPeople).fill(0);
+    return dummyArr.map((list, index) => {
+      return (
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={index} className="formComponentContainers">
+          <div className="personContainer">
+            {/* check box */}
+            Person {index + 1}
+          </div>
+          <div className="paymentContainer">
+            <button type="button" className="plusSign">
+              +
+            </button>
+            <input
+              type="text"
+              readOnly
+              className="paymentValue"
+              defaultValue="$1222.45"
+            />
+            <button type="button" className="minusSign">
+              –
+            </button>
+          </div>
+        </div>
+      );
+    });
+  };
+
   render() {
-    const { subTotal, tip, wholeBill } = this.props;
+    const { subTotal, tip, wholeBill, numPpl } = this.props;
     return (
       <section id="editUserPage">
         <main className="mainUI">
@@ -64,6 +93,7 @@ class EditUser extends React.Component {
                 </tbody>
               </table>
             </div>
+            {this.generatePersonList(numPpl)}
           </form>
         </main>
       </section>

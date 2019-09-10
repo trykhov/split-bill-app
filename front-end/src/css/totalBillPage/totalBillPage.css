@@ -92,7 +92,7 @@ section main .formComponentContainers .inputContainer input {
   font-size: 20px;
   padding: 10px 0 10px 5px;
   text-align: right;
-  width: 90%;
+  width: 80%;
 }
 
 section
@@ -126,6 +126,11 @@ section main .formComponentContainers .inputContainer input:focus::placeholder {
 section main .formComponentContainers hr {
   margin: 0 auto;
   width: 90%;
+}
+
+section main .formComponentContainers .plusSign,
+section main .formComponentContainers .minusSign {
+  width: 25%;
 }
 
 .bottomPortion {

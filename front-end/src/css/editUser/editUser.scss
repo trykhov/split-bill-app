@@ -33,6 +33,34 @@
   }
 }
 
+.paymentContainer {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  input {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    font-family: $fontDesc;
+    font-size: 20px;
+    margin: 0 10px;
+    text-align: center;
+    width: 50%;
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+.personContainer {
+  font-family: "Futura", "serif";
+  font-size: 2vw;
+  margin: 0 10%;
+  @media screen and (max-width: $mobileSize) {
+    font-size: 20px;
+  }
+}
+
 table {
   border-collapse: collapse;
   margin: 0 auto;

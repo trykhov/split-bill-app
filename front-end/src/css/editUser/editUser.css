@@ -88,7 +88,7 @@ section main .formComponentContainers .inputContainer input {
   font-size: 20px;
   padding: 10px 0 10px 5px;
   text-align: right;
-  width: 90%;
+  width: 80%;
 }
 
 section
@@ -164,6 +164,55 @@ section main .formComponentContainers hr {
 @media screen and (max-width: 390px) {
   #editUserPage span {
     font-size: 30px;
+  }
+}
+
+.paymentContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.paymentContainer input {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  font-family: "Futura", "serif";
+  font-size: 20px;
+  margin: 0 10px;
+  text-align: center;
+  width: 50%;
+}
+
+.paymentContainer input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.paymentContainer input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.paymentContainer input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.paymentContainer input:focus::placeholder {
+  color: transparent;
+}
+
+.personContainer {
+  font-family: "Futura", "serif";
+  font-size: 2vw;
+  margin: 0 10%;
+}
+
+@media screen and (max-width: 390px) {
+  .personContainer {
+    font-size: 20px;
   }
 }
 

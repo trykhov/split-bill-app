@@ -74,7 +74,7 @@ section {
           font-size: 20px;
           padding: 10px 0 10px 5px;
           text-align: right;
-          width: 90%;
+          width: 80%;
           &:focus::placeholder {
             color: transparent;
           }
@@ -83,6 +83,10 @@ section {
       hr {
         margin: 0 auto;
         width: 90%;
+      }
+      .plusSign,
+      .minusSign {
+        width: 25%;
       }
     }
   }
