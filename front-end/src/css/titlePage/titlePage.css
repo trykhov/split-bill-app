@@ -1,6 +1,7 @@
 button {
   background: #26a6d8;
   border-radius: 0;
+  border: 0;
   color: #fff;
   font-family: "Futura", "serif";
   padding: 10px;
@@ -45,10 +46,10 @@ section header {
 section main {
   margin: 0 auto;
   padding: 0;
-  width: 390px;
+  width: 550px;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 550px) {
   section main {
     font-size: 20px;
     width: 80%;
@@ -124,13 +125,18 @@ section main .formComponentContainers hr {
   width: 90%;
 }
 
+section main .formComponentContainers .plusSign,
+section main .formComponentContainers .minusSign {
+  width: 25%;
+}
+
 #homepage {
   margin: 10% auto;
   text-align: center;
   width: 80%;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 550px) {
   #homepage {
     margin: 50% auto;
   }
@@ -155,7 +161,7 @@ section main .formComponentContainers hr {
   margin: 5% auto;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 550px) {
   #logo {
     margin: 10% auto;
   }
