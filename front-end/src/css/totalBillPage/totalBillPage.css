@@ -6,7 +6,7 @@ button,
   color: #fff;
   font-family: "Futura", "serif";
   padding: 10px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 button:active,
@@ -146,7 +146,7 @@ section main .formComponentContainers .minusSign {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 10px 0 10px 15px;
+  padding: 10px 5%;
 }
 
 .bottomPortion .inputDesc {
@@ -165,7 +165,7 @@ section main .formComponentContainers .minusSign {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: 10px;
+  padding: 10px 5%;
 }
 
 #numberOfPeopleContainer input {
@@ -200,7 +200,7 @@ section main .formComponentContainers .minusSign {
   display: grid;
   -ms-grid-columns: auto auto auto;
   grid-template-columns: auto auto auto;
-  grid-gap: 20px 10%;
-  padding: 15px 5%;
+  grid-gap: 20px 5%;
+  padding: 3% 5%;
 }
 /*# sourceMappingURL=totalBillPage.css.map */
