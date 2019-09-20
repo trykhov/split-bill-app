@@ -1,0 +1,23 @@
+html,
+body {
+  background: linear-gradient(#62ebe2, #37175e);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+}
+
+@media (min-width: 400px) {
+  body {
+    height: 100%;
+  }
+
+  #root {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+  }
+}
