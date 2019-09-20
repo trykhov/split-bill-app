@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/titlePage/titlePage.css";
-import logo from "../logo.png";
+import logo from "../img/logo.png";
 
 export default function TitlePage() {
   return (

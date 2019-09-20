@@ -5,7 +5,6 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducers from "./reducers";
 import EditUser from "./components/EditUser";
-import NumPeople from "./components/NumPeople";
 import TitlePage from "./components/TitlePage";
 import TotalBill from "./components/TotalBill";
 
@@ -16,7 +15,6 @@ ReactDOM.render(
     <BrowserRouter>
       <Route path="/" component={TitlePage} exact />
       <Route path="/billInfo" component={TotalBill} />
-      <Route path="/numberOfPeople" component={NumPeople} />
       <Route path="/modifyBill" component={EditUser} />
     </BrowserRouter>
   </Provider>,
