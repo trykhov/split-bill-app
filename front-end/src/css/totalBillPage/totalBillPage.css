@@ -91,7 +91,7 @@ section main .formComponentContainers .inputContainer input {
   border: 0;
   border-radius: 0;
   font-size: 20px;
-  padding: 10px 0 10px 5px;
+  padding: 10px;
   text-align: right;
   width: 80%;
 }
@@ -151,6 +151,10 @@ section main .formComponentContainers .minusSign {
 
 .bottomPortion .inputDesc {
   color: #d3d3d3;
+}
+
+.bottomPortion input {
+  float: right;
 }
 
 #modifyButton {

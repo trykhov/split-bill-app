@@ -97,16 +97,17 @@ class EditUser extends React.Component {
     const { subTotal, tip, wholeBill, numPpl } = this.props;
     return (
       <section id="editUserPage">
+        <header className="appName">
+          {/* this will be the container that holds the app logo and name at the top left corner */}
+          <h1>SplitBill</h1>
+        </header>
         <main className="mainUI">
           <button
             id="backButton"
             type="button"
             onClick={() => this.props.history.push("/billInfo")}
           >
-            <i
-              className="fas fa-chevron-left fa-2x"
-              style={{ color: "#fff" }}
-            />
+            <i className="fas fa-chevron-left" style={{ color: "#fff" }} />
             <span>Back</span>
           </button>
           <form action="">

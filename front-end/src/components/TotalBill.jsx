@@ -13,17 +13,23 @@ class TotalBill extends React.Component {
     super(props);
     const { subTotal, tip, wholeBill, numPpl } = this.props;
     this.state = {
-      subtotal: subTotal === 0 ? "" : subTotal.toFixed(2),
-      tipAmount: tip.toFixed(2),
+      subtotal: subTotal === 0 ? "" : `$${subTotal.toFixed(2)}`,
+      tipAmount: `$${tip.toFixed(2)}`,
       howManyPeople: numPpl,
-      totalAmount: wholeBill.toFixed(2)
+      totalAmount: `$${wholeBill.toFixed(2)}`
     };
   }
 
   // ************************************************** subtotal ************************************************
 
   inputSubtotal = inputValue => {
-    this.setState({ subtotal: inputValue.target.value });
+    if (inputValue.target.value === "$") {
+      this.setState({ subtotal: "" }); // when the user removes all numbers
+    } else if (inputValue.target.value.length > 1) {
+      this.setState({ subtotal: `${inputValue.target.value}` });
+    } else {
+      this.setState({ subtotal: `$${inputValue.target.value}` });
+    }
   };
 
   checkInputSubtotal = () => {
@@ -31,10 +37,11 @@ class TotalBill extends React.Component {
       document.getElementById("subtotal").value
     );
     const subtotal = document.getElementById("subtotal");
-    if (confirmSubtotal || Number(subtotal.value)) {
-      subtotal.value = parseFloat(subtotal.value).toFixed(2);
-      this.props.addSubtotal(Number(subtotal.value));
-      this.setState({ subtotal: subtotal.value });
+    const propsSubtotal = subtotal.value.substring(1);
+    if (confirmSubtotal || Number(propsSubtotal)) {
+      subtotal.value = parseFloat(propsSubtotal).toFixed(2);
+      this.props.addSubtotal(Number(propsSubtotal));
+      this.setState({ subtotal: `$${subtotal.value}` });
     } else {
       subtotal.value = parseFloat(0).toFixed(2);
       this.props.addSubtotal(0);
@@ -46,7 +53,13 @@ class TotalBill extends React.Component {
 
   // ************************************************** tipping **************************************************
   inputTip = inputValue => {
-    this.setState({ tipAmount: inputValue.target.value });
+    if (inputValue.target.value === "$") {
+      this.setState({ tipAmount: "" }); // when the user removes all numbers
+    } else if (inputValue.target.value.length > 1) {
+      this.setState({ tipAmount: `${inputValue.target.value}` });
+    } else {
+      this.setState({ tipAmount: `$${inputValue.target.value}` });
+    }
   };
 
   checkInputTip = () => {
@@ -54,23 +67,24 @@ class TotalBill extends React.Component {
       document.getElementById("tip").value
     );
     const tip = document.getElementById("tip");
-    if (confirmSubtotal || Number(tip.value)) {
-      tip.value = parseFloat(tip.value).toFixed(2);
-      this.props.addTip(Number(tip.value));
+    const propsTip = tip.value.substring(1);
+    if (confirmSubtotal || Number(propsTip)) {
+      tip.value = parseFloat(propsTip).toFixed(2);
+      this.props.addTip(Number(propsTip));
     } else {
       tip.value = parseFloat(0).toFixed(2);
       this.props.addTip(0);
     }
-    this.setState({ tipAmount: tip.value });
+    this.setState({ tipAmount: `$${tip.value}` });
     setTimeout(() => this.calculateTotalCallback(), 250);
   };
 
   giveTip = percentage => {
     const tipAmount = (this.props.subTotal * percentage).toFixed(2);
     const tip = document.getElementById("tip");
-    tip.value = Number(tipAmount).toFixed(2);
+    tip.value = `$${Number(tipAmount).toFixed(2)}`;
     this.props.addTip(Number(tipAmount));
-    this.setState({ tipAmount });
+    this.setState({ tipAmount: tip.value });
     setTimeout(() => this.calculateTotalCallback(), 250);
   };
 
@@ -109,7 +123,13 @@ class TotalBill extends React.Component {
   // ********************************************** total bill **********************************************
 
   inputTotal = inputValue => {
-    this.setState({ totalAmount: inputValue.target.value });
+    if (inputValue.target.value === "$") {
+      this.setState({ totalAmount: "" }); // when the user removes all numbers
+    } else if (inputValue.target.value.length > 1) {
+      this.setState({ totalAmount: `${inputValue.target.value}` });
+    } else {
+      this.setState({ totalAmount: `$${inputValue.target.value}` });
+    }
   };
 
   checkInputTotal = () => {
@@ -117,21 +137,23 @@ class TotalBill extends React.Component {
       document.getElementById("totalBill").value
     );
     const total = document.getElementById("totalBill");
-    if (confirmTotal || Number(total.value)) {
-      total.value = parseFloat(total.value).toFixed(2);
+    const propsTotal = total.value.substring(1);
+    if (confirmTotal || Number(propsTotal)) {
+      total.value = parseFloat(propsTotal).toFixed(2);
       this.props.addTotal(Number(total.value));
     } else {
       total.value = parseFloat(0).toFixed(2);
       this.props.addTotal(0);
     }
-    this.setState({ totalAmount: total.value });
+    this.setState({ totalAmount: `$${total.value}` });
     setTimeout(() => this.calculateTipCallback(), 250);
   };
   // ********************************************** Call Warning ********************************************
 
   obeysRegExp = value => {
     // checks if they follow regular expression pattern
-    const regExp = /^[0-9]+(\.[0-9]{1,2})?$/;
+    const regExp = /^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.[0-9][0-9])?$/;
+    // console.log(regExp.test(value));
     return regExp.test(value);
   };
 
@@ -139,8 +161,8 @@ class TotalBill extends React.Component {
     const { subTotal, tip } = this.props;
     const total = document.getElementById("totalBill");
     total.value = (subTotal + tip).toFixed(2);
-    this.setState({ totalAmount: total.value }); // order matters
-    this.props.addTotal(Number(total.value));
+    this.setState({ totalAmount: `$${total.value}` }); // order matters
+    this.props.addTotal(Number(total.value.substring(1)));
   };
 
   calculateTipCallback = () => {
@@ -148,7 +170,7 @@ class TotalBill extends React.Component {
     const diff = document.getElementById("tip");
     diff.value = (wholeBill - subTotal).toFixed(2);
     if (Number(diff.value) >= 0) {
-      this.setState({ tipAmount: diff.value });
+      this.setState({ tipAmount: `$${diff.value}` });
       this.props.addTip(Number(diff.value));
     }
   };
@@ -197,7 +219,7 @@ class TotalBill extends React.Component {
   render() {
     const { howManyPeople, tipAmount, totalAmount, subtotal } = this.state;
     const { numPpl, wholeBill } = this.props;
-
+    console.log(wholeBill, numPpl);
     return (
       <section id="totalBillPage">
         <header className="appName">
@@ -209,11 +231,10 @@ class TotalBill extends React.Component {
             <label htmlFor="subtotal">Subtotal</label>
             <div className="formComponentContainers">
               <div className="inputContainer">
-                <span>$</span>
                 <input
                   id="subtotal"
                   type="text"
-                  placeholder="0.00"
+                  placeholder="$0.00"
                   onBlur={this.checkInputSubtotal}
                   onChange={this.inputSubtotal}
                   value={subtotal}
@@ -267,11 +288,10 @@ class TotalBill extends React.Component {
               <div className="bottomPortion">
                 <span className="inputDesc">Tip Amount</span>
                 <div className="inputContainer">
-                  <span>$</span>
                   <input
                     id="tip"
                     type="text"
-                    placeholder="0.00"
+                    placeholder="$0.00"
                     onBlur={this.checkInputTip}
                     onChange={this.inputTip}
                     value={tipAmount}
@@ -315,7 +335,6 @@ class TotalBill extends React.Component {
             <label htmlFor="totalBill">Total</label>
             <div className="formComponentContainers">
               <div className="inputContainer">
-                <span>$</span>
                 <input
                   id="totalBill"
                   type="text"

@@ -5,7 +5,7 @@ button {
   color: #fff;
   font-family: "Futura", "serif";
   padding: 10px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 button:active {
@@ -139,7 +139,14 @@ section main .formComponentContainers .minusSign {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 2vw;
   margin: 20px 0;
+}
+
+@media screen and (max-width: 550px) {
+  #backButton {
+    font-size: 20px;
+  }
 }
 
 #backButton i {
@@ -164,12 +171,12 @@ section main .formComponentContainers .minusSign {
 #editUserPage span {
   color: #fff;
   font-family: "Futura", "serif";
-  font-size: 5vw;
+  font-size: 2vw;
 }
 
 @media screen and (max-width: 550px) {
   #editUserPage span {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
