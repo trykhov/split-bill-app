@@ -8,39 +8,44 @@ class EditUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      numUnChecked: this.props.numPpl
+      numUnChecked: this.props.numPpl,
+      remainingAmount: this.props.wholeBill
     };
   }
 
   checkCheckBox = index => {
-    const { numUnChecked } = this.state;
+    const { numUnChecked, remainingAmount } = this.state;
     if (document.getElementById(`hasPaid${index}`).checked) {
-      this.setState({ numUnChecked: numUnChecked - 1 });
+      this.setState({ numUnChecked: numUnChecked - 1, remainingAmount: remainingAmount - Number(document.getElementById(`person${index}`).value)});
     } else {
-      this.setState({ numUnChecked: numUnChecked + 1 });
+      this.setState({ numUnChecked: numUnChecked + 1, remainingAmount: remainingAmount + Number(document.getElementById(`person${index}`).value)});
     }
   };
 
   addSubtractDollar = (index, amount) => {
-    const { numUnChecked } = this.state;
-
+    const { numUnChecked, remainingAmount } = this.state;
     if (!document.getElementById(`hasPaid${index}`).checked) {
       // if the box is not checked, you can still add more to pay
       const personAmount = document.getElementById(`person${index}`);
       // changing the value of the input
-      personAmount.value = (Number(personAmount.value) + amount).toFixed(2);
-      // get all the payment boxes (people)
-      const peopleToPay = document.getElementsByClassName("hasToPay");
-      // const leftOverPay = peopleToPay.filter(check => check.checked === true);
-      // console.log(leftOverPay.length)
-      for (let i = 1; i <= peopleToPay.length; i += 1) {
-        const confirmCheckBox = document.getElementById(`hasPaid${i}`).checked;
-        const deduceTarget = document.getElementById(`person${i}`);
-        if (!confirmCheckBox && i !== index) {
-          deduceTarget.value = (
-            Number(deduceTarget.value) -
-            amount / (numUnChecked - 1)
-          ).toFixed(2);
+      const newValue = (Number(personAmount.value) + amount).toFixed(2); 
+      // substracting from remaining value doesn't go over && value isn't negative
+      if(remainingAmount - newValue > 0 && newValue > 0 && remainingAmount - Number(personAmount.value) > 0) { 
+        personAmount.value = (Number(personAmount.value) + amount).toFixed(2); 
+         // get all the payment boxes (people)
+        const peopleToPay = document.getElementsByClassName("hasToPay");
+        let newRemain = remainingAmount - newValue;
+        for (let i = 1; i <= peopleToPay.length; i += 1) {
+          const confirmCheckBox = document.getElementById(`hasPaid${i}`).checked;
+          const deduceTarget = document.getElementById(`person${i}`);
+          if (!confirmCheckBox && i !== index) {
+            const potentialValue = Number(deduceTarget.value) - amount / (numUnChecked - 1).toFixed(2);
+            // value can't become negative
+            if(potentialValue > 0 && newRemain > 0) {
+              newRemain -= potentialValue;
+              deduceTarget.value = potentialValue.toFixed(2);
+            } 
+          }
         }
       }
     }

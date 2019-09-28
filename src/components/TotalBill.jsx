@@ -207,7 +207,6 @@ class TotalBill extends React.Component {
       document.getElementById("totalBill").value
     );
     if (confirmSubtotal && confirmTip && confirmTotal) {
-      console.log("All done");
       this.props.history.push("/modifyBill");
     } else {
       console.log("Something is wrong");
@@ -219,7 +218,6 @@ class TotalBill extends React.Component {
   render() {
     const { howManyPeople, tipAmount, totalAmount, subtotal } = this.state;
     const { numPpl, wholeBill } = this.props;
-    console.log(wholeBill, numPpl);
     return (
       <section id="totalBillPage">
         <header className="appName">
