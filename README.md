@@ -1,7 +1,7 @@
 # Demo
 ![demo](demo.gif)
 
-
+Try it here: https://trykhov.github.io/split-bill-app/#/
 
 ## About
 
