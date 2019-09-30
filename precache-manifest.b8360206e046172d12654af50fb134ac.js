@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cfab01671b72db51d4640bedb3094aef",
+    "revision": "1430cb585d039d548891c5ef7318f477",
     "url": "/split-bill-app/index.html"
   },
   {
-    "revision": "18b321487f6be5f1dea5",
-    "url": "/split-bill-app/static/css/main.5c294a54.chunk.css"
+    "revision": "95958276a81af7d7d31e",
+    "url": "/split-bill-app/static/css/main.69eb17c9.chunk.css"
   },
   {
     "revision": "3549d354b6b527a1df68",
     "url": "/split-bill-app/static/js/2.b2eba601.chunk.js"
   },
   {
-    "revision": "18b321487f6be5f1dea5",
-    "url": "/split-bill-app/static/js/main.cedff130.chunk.js"
+    "revision": "95958276a81af7d7d31e",
+    "url": "/split-bill-app/static/js/main.bd88170c.chunk.js"
   },
   {
     "revision": "5da3dd1a6a7088deeae9",
