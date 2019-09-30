@@ -31,6 +31,7 @@
     font-family: $fontDesc;
     font-size: 20px;
     margin: 0 10px;
+    outline: none;
     text-align: center;
     width: 50%;
     &:focus::placeholder {

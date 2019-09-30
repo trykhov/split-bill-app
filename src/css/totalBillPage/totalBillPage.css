@@ -1,5 +1,4 @@
-button,
-.percentageContainer .percentage {
+button, .percentageContainer .percentage {
   background: #26a6d8;
   border-radius: 0;
   border: 0;
@@ -9,27 +8,18 @@ button,
   font-size: 15px;
 }
 
-button:active,
-.percentageContainer .percentage:active {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#147497),
-    to(#08364b)
-  );
+button:active, .percentageContainer .percentage:active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#147497), to(#08364b));
   background: linear-gradient(#147497, #08364b);
 }
 
-button:hover,
-.percentageContainer .percentage:hover {
+button:hover, .percentageContainer .percentage:hover {
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   cursor: pointer;
 }
 
-button:focus,
-.percentageContainer .percentage:focus {
+button:focus, .percentageContainer .percentage:focus {
   outline: 0;
 }
 
@@ -91,32 +81,21 @@ section main .formComponentContainers .inputContainer input {
   border: 0;
   border-radius: 0;
   font-size: 20px;
+  outline: none;
   padding: 10px;
   text-align: right;
   width: 80%;
 }
 
-section
-  main
-  .formComponentContainers
-  .inputContainer
-  input:focus::-webkit-input-placeholder {
+section main .formComponentContainers .inputContainer input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-section
-  main
-  .formComponentContainers
-  .inputContainer
-  input:focus:-ms-input-placeholder {
+section main .formComponentContainers .inputContainer input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-section
-  main
-  .formComponentContainers
-  .inputContainer
-  input:focus::-ms-input-placeholder {
+section main .formComponentContainers .inputContainer input:focus::-ms-input-placeholder {
   color: transparent;
 }
 
@@ -136,16 +115,16 @@ section main .formComponentContainers .minusSign {
 
 .bottomPortion {
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   font-family: "Futura", "serif";
   font-size: 20px;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 10px 5%;
 }
 
@@ -167,8 +146,8 @@ section main .formComponentContainers .minusSign {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 10px 5%;
 }
 
@@ -179,6 +158,7 @@ section main .formComponentContainers .minusSign {
   font-family: "Futura", "serif";
   font-size: 20px;
   margin: 0 10px;
+  outline: none;
   text-align: center;
   width: 50%;
 }
@@ -203,7 +183,7 @@ section main .formComponentContainers .minusSign {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto auto;
-  grid-template-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
   grid-gap: 20px 5%;
   padding: 3% 5%;
 }

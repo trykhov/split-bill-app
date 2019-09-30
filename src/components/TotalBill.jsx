@@ -3,7 +3,6 @@
 /* eslint-disable react/destructuring-assignment */
 // eslint-disable-next-line react/destructuring-assignment, react/prop-types
 import React from "react";
-// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "../css/totalBillPage/totalBillPage.css";
 import { addSubtotal, addTip, addPeople, addTotal } from "../actions";
@@ -20,7 +19,7 @@ class TotalBill extends React.Component {
     };
   }
 
-  // ************************************************** subtotal ************************************************
+  // subtotal
 
   inputSubtotal = inputValue => {
     if (inputValue.target.value === "$") {
@@ -51,7 +50,7 @@ class TotalBill extends React.Component {
     setTimeout(() => this.calculateTotalCallback(), 250); // update the state first before running
   };
 
-  // ************************************************** tipping **************************************************
+  // tipping 
   inputTip = inputValue => {
     if (inputValue.target.value === "$") {
       this.setState({ tipAmount: "" }); // when the user removes all numbers
@@ -88,7 +87,7 @@ class TotalBill extends React.Component {
     setTimeout(() => this.calculateTotalCallback(), 250);
   };
 
-  // ************************** adding or subtracting number of people **********************************
+  // adding or subtracting number of people
   addSubtractPeople = amount => {
     const { numPpl } = this.props;
     if (numPpl > 1) {
@@ -120,7 +119,7 @@ class TotalBill extends React.Component {
     }
   };
 
-  // ********************************************** total bill **********************************************
+  //  total bill 
 
   inputTotal = inputValue => {
     if (inputValue.target.value === "$") {
@@ -148,12 +147,11 @@ class TotalBill extends React.Component {
     this.setState({ totalAmount: `$${total.value}` });
     setTimeout(() => this.calculateTipCallback(), 250);
   };
-  // ********************************************** Call Warning ********************************************
+  // Call Warning
 
   obeysRegExp = value => {
     // checks if they follow regular expression pattern
     const regExp = /^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.[0-9][0-9])?$/;
-    // console.log(regExp.test(value));
     return regExp.test(value);
   };
 
@@ -173,28 +171,6 @@ class TotalBill extends React.Component {
       this.setState({ tipAmount: `$${diff.value}` });
       this.props.addTip(Number(diff.value));
     }
-  };
-
-  callWarning = (call, type) => {
-    const confirmInput = this.obeysRegExp(call);
-    if (!confirmInput) {
-      switch (type) {
-        case "PEOPLE":
-          return (
-            <span className="warning">
-              Please enter a valid number greater than 0
-            </span>
-          );
-        case "AMOUNT":
-          return (
-            <span className="warning">
-              Please enter a valid number in the format of x.xx or x
-            </span>
-          );
-        default:
-      }
-    }
-    return "";
   };
 
   handleSubmit = event => {
@@ -221,7 +197,6 @@ class TotalBill extends React.Component {
     return (
       <section id="totalBillPage">
         <header className="appName">
-          {/* this will be the container that holds the app logo and name at the top left corner */}
           <h1>SplitBill</h1>
         </header>
         <main className="mainUI">
@@ -238,7 +213,6 @@ class TotalBill extends React.Component {
                   value={subtotal}
                 />
               </div>
-              {/* {this.callWarning(billAmount, "AMOUNT")} */}
             </div>
             <label htmlFor="tip">Tip</label>
             <div className="formComponentContainers">
@@ -278,8 +252,8 @@ class TotalBill extends React.Component {
                 >
                   25%
                 </button>
-                <button type="button" className="percentage">
-                  Custom
+                <button type="button" className="percentage" onClick={() => this.giveTip(0.3)}>
+                  30%
                 </button>
               </div>
               <hr />
@@ -296,7 +270,6 @@ class TotalBill extends React.Component {
                   />
                 </div>
               </div>
-              {this.callWarning(tipAmount, "AMOUNT")}
             </div>
             <label htmlFor="numberOfPeople">Number of People</label>
             <div className="formComponentContainers">

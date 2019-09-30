@@ -52,27 +52,26 @@ class EditUser extends React.Component {
   };
 
   generatePersonList = numberOfPeople => {
-    const dummyArr = new Array(numberOfPeople).fill(0);
+    const people = [];
     const { wholeBill } = this.props;
-    return dummyArr.map((list, index) => {
-      return (
-        // eslint-disable-next-line react/no-array-index-key
-        <div className="peoplePaying" key={index}>
+    for(let i = 0; i < numberOfPeople; i += 1) {
+      people.push(
+        <div className="peoplePaying">
           <div className="personContainer">
             <input
               type="checkbox"
-              id={`hasPaid${index + 1}`}
+              id={`hasPaid${i + 1}`}
               className="hasToPay"
-              onClick={() => this.checkCheckBox(index + 1)}
+              onClick={() => this.checkCheckBox(i + 1)}
             />
-            Person {index + 1}
+            Person {i + 1}
           </div>
           <div className="formComponentContainers">
             <div className="paymentContainer">
               <button
                 type="button"
                 className="plusSign"
-                onClick={() => this.addSubtractDollar(index + 1, 1)}
+                onClick={() => this.addSubtractDollar(i + 1, 1)}
               >
                 +
               </button>
@@ -80,13 +79,13 @@ class EditUser extends React.Component {
                 type="text"
                 readOnly
                 className="paymentValue"
-                id={`person${index + 1}`}
+                id={`person${i + 1}`}
                 defaultValue={(wholeBill / numberOfPeople).toFixed(2)}
               />
               <button
                 type="button"
                 className="minusSign"
-                onClick={() => this.addSubtractDollar(index + 1, -1)}
+                onClick={() => this.addSubtractDollar(i + 1, -1)}
               >
                 –
               </button>
@@ -95,7 +94,8 @@ class EditUser extends React.Component {
           <hr />
         </div>
       );
-    });
+    }
+    return people;
   };
 
   render() {

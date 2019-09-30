@@ -9,19 +9,13 @@ button {
 }
 
 button:active {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#147497),
-    to(#08364b)
-  );
+  background: -webkit-gradient(linear, left top, left bottom, from(#147497), to(#08364b));
   background: linear-gradient(#147497, #08364b);
 }
 
 button:hover {
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
   cursor: pointer;
 }
 
@@ -87,32 +81,21 @@ section main .formComponentContainers .inputContainer input {
   border: 0;
   border-radius: 0;
   font-size: 20px;
-  padding: 10px 0 10px 5px;
+  outline: none;
+  padding: 10px;
   text-align: right;
   width: 80%;
 }
 
-section
-  main
-  .formComponentContainers
-  .inputContainer
-  input:focus::-webkit-input-placeholder {
+section main .formComponentContainers .inputContainer input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-section
-  main
-  .formComponentContainers
-  .inputContainer
-  input:focus:-ms-input-placeholder {
+section main .formComponentContainers .inputContainer input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-section
-  main
-  .formComponentContainers
-  .inputContainer
-  input:focus::-ms-input-placeholder {
+section main .formComponentContainers .inputContainer input:focus::-ms-input-placeholder {
   color: transparent;
 }
 
@@ -132,8 +115,8 @@ section main .formComponentContainers .minusSign {
 
 #backButton {
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: none;
   border: none;
   display: -webkit-box;
@@ -185,8 +168,8 @@ section main .formComponentContainers .minusSign {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 10px;
 }
 
@@ -234,7 +217,7 @@ section main .formComponentContainers .minusSign {
 
 .personContainer input[type="checkbox"] {
   -webkit-transform: scale(1.5);
-  transform: scale(1.5);
+          transform: scale(1.5);
   margin-right: 20px;
 }
 
