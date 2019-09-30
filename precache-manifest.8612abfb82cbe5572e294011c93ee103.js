@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dd70ede97d004ebb715117b777a94c79",
+    "revision": "1dab64c7074d1c5aac63ff1cf401e8d2",
     "url": "/split-bill-app/index.html"
   },
   {
