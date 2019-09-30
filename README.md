@@ -1,68 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Demo
+![demo](demo.gif)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## About
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This was an app that I created out of an idea of a tool that I could use when I got out to eat with friends. Often we struggle with how to split the bill and wanted to create an app to solve that issue. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+While there were plenty of apps out there that already did this, I wanted to try to make one myself with features that I didn't see on other apps. Primarily, I wanted to create one that dealt specifically with the precision of the total bill. For example, some apps would only allow users to have whole percentages (5%, 15%, 20%) as tip. There was no 5.15% or anything that allowed the user to make the bill a whole number. Personally, I want to make my bill be a whole number.
 
-### `npm test`
+## Approach
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+So the first iteration of this app was purely front-end focused. I used React.js to build this because I knew that I would be dealing with reusable components and state-management for the inputs.
 
-### `npm run build`
+In allowing the users to enter the subtotal (bill without tip), users are able to pick tip percentages. However, users can also enter custom numbers as well. One feature that I thought was helpful was when users entered the tip or total, the app would automatically adjust the tip or total. For example, if the subtotal was $24.64 and I put a custom total of $35.00, the tip will automatically be changed to the difference ($10.36).
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In addition, the user can determine how many people are present / participating and the app will tell them how much each person will pay if they decide to split everything evenly.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Should people decide they want to pay for their own items, the user can modify the bill by clicking the button at the end of the page to go to the next page. Redux transfers those previous inputs into the next page and users are able to change how much they want to pay.
