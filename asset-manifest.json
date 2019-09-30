@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/split-bill-app/static/css/main.69eb17c9.chunk.css",
-    "main.js": "/split-bill-app/static/js/main.bd88170c.chunk.js",
-    "main.js.map": "/split-bill-app/static/js/main.bd88170c.chunk.js.map",
+    "main.js": "/split-bill-app/static/js/main.b089db28.chunk.js",
+    "main.js.map": "/split-bill-app/static/js/main.b089db28.chunk.js.map",
     "runtime~main.js": "/split-bill-app/static/js/runtime~main.684476a4.js",
     "runtime~main.js.map": "/split-bill-app/static/js/runtime~main.684476a4.js.map",
     "static/js/2.b2eba601.chunk.js": "/split-bill-app/static/js/2.b2eba601.chunk.js",
     "static/js/2.b2eba601.chunk.js.map": "/split-bill-app/static/js/2.b2eba601.chunk.js.map",
     "index.html": "/split-bill-app/index.html",
-    "precache-manifest.b8360206e046172d12654af50fb134ac.js": "/split-bill-app/precache-manifest.b8360206e046172d12654af50fb134ac.js",
+    "precache-manifest.2aaecb7b26c7792b51b93bf1de7ecfa9.js": "/split-bill-app/precache-manifest.2aaecb7b26c7792b51b93bf1de7ecfa9.js",
     "service-worker.js": "/split-bill-app/service-worker.js",
     "static/css/main.69eb17c9.chunk.css.map": "/split-bill-app/static/css/main.69eb17c9.chunk.css.map"
   }

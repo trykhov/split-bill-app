@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/split-bill-app/precache-manifest.b8360206e046172d12654af50fb134ac.js"
+  "/split-bill-app/precache-manifest.2aaecb7b26c7792b51b93bf1de7ecfa9.js"
 );
 
 self.addEventListener('message', (event) => {
